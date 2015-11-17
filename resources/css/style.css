@@ -250,7 +250,7 @@ section {
 }
 
 .color2 {
-    background: url(../images/background.jpg) fixed;
+    background: url(../resources/images/background.jpg) fixed;
     color: #fff;
 }
 
@@ -582,19 +582,19 @@ header a:focus {
 }
 
 .bg-img-1 {
-    background-image: url(../images/BG1.jpg);
+    background-image: url(../resources/images/BG1.jpg);
 }
 
 .bg-img-2 {
-    background-image: url(../images/BG2.jpg);
+    background-image: url(../resources/images/BG2.jpg);
 }
 
 .bg-img-3 {
-    background-image: url(../images/BG3.jpg);
+    background-image: url(../resources/images/BG3.jpg);
 }
 
 .bg-img-4 {
-    background-image: url(../images/BG4.jpg);
+    background-image: url(../resources/images/BG4.jpg);
 }
 
 .sl-slider-wrapper .tint {
@@ -1292,11 +1292,11 @@ label {
 }
 
 #stats {
-    background-image: url(../images/background2.jpg);
+    background-image: url(../resources/images/background2.jpg);
 }
 
 #testimonials {
-    background-image: url(../images/background2.jpg);
+    background-image: url(../resources/images/background2.jpg);
 }
 
 
@@ -1308,7 +1308,7 @@ label {
 }
 
 #phone {
-    background-image: url(../images/phone.png);
+    background-image: url(../resources/images/phone.png);
     background-repeat: no-repeat;
     background-size: cover;
     min-height: 500px;
@@ -1659,14 +1659,14 @@ label {
 }
 
 .sidebar-links li a {
-    background: url(../images/bullet.png) no-repeat 10px 18px;
+    background: url(../resources/images/bullet.png) no-repeat 10px 18px;
     border-bottom: 1px solid #e7e7e7;
     display: block;
     padding: 10px 10px 10px 25px;
 }
 
 .sidebar-links li a:hover {
-    background: #f8f8f8 url(../images/bullet.png) no-repeat 15px 18px;
+    background: #f8f8f8 url(../resources/images/bullet.png) no-repeat 15px 18px;
 }
 
 .sidebar-links li a span {
@@ -2013,7 +2013,7 @@ label {
         padding-top: 10px;
     }
     .color2 {
-        background: url(../images/background.jpg);
+        background: url(../resources/images/background.jpg);
     }
     #contact div[class*="col"],
     #prefooter div[class*="col"] {
