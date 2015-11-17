@@ -415,7 +415,9 @@
 
         // Bootstrap Wysiwyg
 
-        $('.editor1').wysiwyg();
+        $('.editor1').wysiwyg({
+            toolbarSelector: '[data-role=editor1-toolbar]'
+        });
         $('.editor2').wysiwyg({
             toolbarSelector: '[data-role=editor2-toolbar]'
         });
@@ -428,7 +430,6 @@
         $('.editor5').wysiwyg({
             toolbarSelector: '[data-role=editor5-toolbar]'
         });
-
         $('.dropdown-menu input').click(function () {
             return false;
         }).change(function () {
@@ -451,6 +452,12 @@
                 '<a href="{{image_b}}" class="fancybox" rel="gallery"><img src="{{image_s}}" alt="{{title}}" /></a>' +
                 '</li>'
         });
+        
+        // ====================================================================
+
+        // Select2 Dropdown Menu
+
+        $(".industry-multiple").select2();
 
         // ====================================================================
 
@@ -486,9 +493,9 @@
             },
             showAutocompleteOnFocus: true
         })
-        
+
         // Tokenfield Tag Check Duplicate
-        
+
         $('#tokenfield').on('tokenfield:createtoken', function (event) {
             var existingTokens = $(this).tokenfield('getTokens');
             $.each(existingTokens, function (index, token) {
