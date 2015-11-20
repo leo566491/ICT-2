@@ -15,7 +15,7 @@
     <mvc:annotation-driven/>
     <mvc:resources mapping="/resources/**" location="/resources/" />
     <!-- 自动扫描包 -->   
-    <context:component-scan base-package="com.mycompany.controller" />
+    <context:component-scan base-package="com.newa5pro.controller" />
        
     <!--<context:annotation-config /> 配置自动扫描包配置此配置可省略-->     
     <!--<bean class="org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping" 配置自动扫描包配置此配置可省略/>-->  
