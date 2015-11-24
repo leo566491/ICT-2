@@ -17,23 +17,24 @@
             <!-- Tab panes -->
             <div class="tab-content">
                 <div role="tabpanel" class="tab-pane active" id="reg-personal">
-                    <form>
+                    <span id='reg-personal-warning'></span>
+                    <form id="register-per">
                         <div class="form-group">
                             <label for="register-per-fName">First Name</label>
-                            <input type="text" class="form-control" id="register-per-fName">
+                            <input type="text" class="form-control" id="register-per-fName" name="f_name">
                         </div>
                         <div class="form-group">
                             <label for="register-per-lName">Last Name</label>
-                            <input type="text" class="form-control" id="register-per-lName">
+                            <input type="text" class="form-control" id="register-per-lName" name="l_name">
                         </div>
                         <hr>
                         <div class="form-group">
                             <label for="register-per-email">Email</label>
-                            <input type="email" class="form-control" id="register-per-email">
+                            <input type="email" class="form-control" id="register-per-email" name="email">
                         </div>
                         <div class="form-group">
                             <label for="register-per-password1">Password</label>
-                            <input type="password" class="form-control" id="register-per-password1">
+                            <input type="password" class="form-control" id="register-per-password1" name="pass">
                         </div>
                         <div class="form-group">
                             <label for="register-per-password2">Repeat Password</label>
@@ -43,27 +44,28 @@
                     </form>
                 </div>
                 <div role="tabpanel" class="tab-pane" id="reg-company">
-                    <form>
+                    <span id='reg-company-warning'></span>
+                    <form id="register-com">
                         <div class="form-group">
                             <label for="register-com-comName">Company Name</label>
-                            <input type="text" class="form-control" id="register-com-comName">
+                            <input type="text" class="form-control" id="register-com-comName" name="com_name">
                         </div>
                         <div class="form-group">
                             <label for="register-com-fName">First Name</label>
-                            <input type="text" class="form-control" id="register-com-fName">
+                            <input type="text" class="form-control" id="register-com-fName" name="f_name">
                         </div>
                         <div class="form-group">
                             <label for="register-com-lName">Last Name</label>
-                            <input type="text" class="form-control" id="register-com-lName">
+                            <input type="text" class="form-control" id="register-com-lName" name="l_name">
                         </div>
                         <hr>
                         <div class="form-group">
                             <label for="register-com-email">Email</label>
-                            <input type="email" class="form-control" id="register-com-email">
+                            <input type="email" class="form-control" id="register-com-email" name="email">
                         </div>
                         <div class="form-group">
                             <label for="register-com-password1">Password</label>
-                            <input type="password" class="form-control" id="register-com-password1">
+                            <input type="password" class="form-control" id="register-com-password1" name="pass">
                         </div>
                         <div class="form-group">
                             <label for="register-com-password2">Repeat Password</label>
