@@ -15,20 +15,32 @@
     <mvc:annotation-driven/>
     <mvc:resources mapping="/resources/**" location="/resources/" />
     <!-- 自动扫描包 -->   
-    <context:component-scan base-package="com.mycompany.controller" />
+    <context:component-scan base-package="com.newa5pro.controller" />
        
-    <!--<context:annotation-config /> 配置自动扫描包配置此配置可省略-->     
-    <!--<bean class="org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping" 配置自动扫描包配置此配置可省略/>-->  
-    <!-- 配置freeMarker的模板路径 -->  
+ 
     <bean class="org.springframework.web.servlet.view.freemarker.FreeMarkerConfigurer">  
         <property name="templateLoaderPath" value="WEB-INF/ftl/" />  
         <property name="defaultEncoding" value="UTF-8" />  
     </bean>  
-    <!-- freemarker视图解析器 -->  
     <bean class="org.springframework.web.servlet.view.freemarker.FreeMarkerViewResolver">  
         <property name="suffix" value=".html" />  
         <property name="contentType" value="text/html;charset=UTF-8" />  
-        <!-- 此变量值为pageContext.request, 页面使用方法：rc.contextPath -->  
         <property name="requestContextAttribute" value="rc" />  
-    </bean>  
+    </bean> 
+    
+    <bean id="userService" class="com.newa5pro.user.UserServiceImpl" >
+    </bean>
+    <bean id="employeeService" class="com.newa5pro.employee.EmployeeServiceImpl" >
+    </bean> 
+    <bean id="jobService" class="com.newa5pro.job.JobServiceImpl" >
+    </bean>
+    <bean id="companyService" class="com.newa5pro.company.CompanyServiceImpl" >
+    </bean>
+    
+    <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource"
+        p:driverClassName="com.mysql.jdbc.Driver"
+        p:url="jdbc:mysql://localhost/job_agent"
+        p:username="root"
+        p:password="">
+    </bean> 
 </beans>
