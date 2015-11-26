@@ -5,11 +5,9 @@
  */
 package com.newa5pro.employee;
 
-import com.newa5pro.user.UserService;
 import java.util.ArrayList;
 import java.util.List;
 import javax.sql.DataSource;
-import jdk.nashorn.internal.objects.annotations.Setter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 
@@ -24,9 +22,9 @@ public class EmployeeServiceImpl implements EmployeeService {
 
     @Override
     public void updateEmInfo(EmInfo emInfo) {
-        String sql = "Update `employee_info` SET `em_birth` = ?,`em_fname` =? ,`em_lname` = ?,`em_info`=?,`em_national`=?,`em_pic`=?,`em_skill`=?,`em_tel`=? WHERE `em_id` = ?";
+        String sql = "Update `employee_info` SET `em_pic`=?,`em_birth` = ?,`em_tel`=?,`em_info`=?,`em_skill`=?,`em_fname` =? ,`em_lname` = ?,`em_title`=?,`em_industry`=?,`em_location`=?,`em_doc`=? WHERE `em_id` = ?";
         JdbcTemplate jdbcTemplate = new JdbcTemplate(dataSource);
-        jdbcTemplate.update(sql, new Object[] { emInfo.birth,emInfo.fname,emInfo.lname,emInfo.info,emInfo.national,emInfo.pic,emInfo.skill,emInfo.tel,emInfo.Id});
+        jdbcTemplate.update(sql, new Object[] { emInfo.pic,emInfo.birth,emInfo.tel,emInfo.info,emInfo.skill,emInfo.fname,emInfo.lname,emInfo.title,emInfo.industry,emInfo.location,emInfo.doc,emInfo.Id});
 
     }
 
@@ -40,9 +38,9 @@ public class EmployeeServiceImpl implements EmployeeService {
 
     @Override
     public void addEmExp(EmExp emExp) {
-        String sql = "INSERT INTO `employee_experience` (`em_id`, `com_name`, `em_department`, `em_position`, `em_period`, `em_require`) VALUES(?,?,?,?,?,?)";
+        String sql = "INSERT INTO `employee_experience` (`em_id`, `com_name`, `em_period`, `em_respon`, `em_title`) VALUES(?,?,?,?,?)";
         JdbcTemplate jdbcTemplate = new JdbcTemplate(dataSource);
-        jdbcTemplate.update(sql, new Object[] { emExp.emId,emExp.comName,emExp.department,emExp.position,emExp.period,emExp.require});
+        jdbcTemplate.update(sql, new Object[] { emExp.emId,emExp.comName,emExp.period,emExp.respon,emExp.title});
     }
 
     @Override
@@ -59,5 +57,28 @@ public class EmployeeServiceImpl implements EmployeeService {
         String sql = "select * from employee_experience where em_id= ?";
         exp = jdbcTemplate.query(sql,new Object[]{emId}, new EmRowMapperEmExp());
         return exp;
+    }
+    
+    @Override
+    public void addEmEdu(EmEdu emEdu) {
+        String sql = "INSERT INTO `employee_education` (`em_id`, `em_academy`, `em_major`, `em_year`, `em_info`) VALUES(?,?,?,?,?)";
+        JdbcTemplate jdbcTemplate = new JdbcTemplate(dataSource);
+        jdbcTemplate.update(sql, new Object[] { emEdu.emId,emEdu.academy,emEdu.major,emEdu.year,emEdu.info});
+    }
+
+    @Override
+    public void deleteEmEdu(int edu_Id) {
+        String sql = "DELETE FROM `employee_education` WHERE `edu_id` = ?";
+        JdbcTemplate jdbcTemplate = new JdbcTemplate(dataSource);
+        jdbcTemplate.update(sql, new Object[] {edu_Id});
+    }
+
+    @Override
+    public List<EmEdu> getEmEdu(int emId) {
+        List<EmEdu> edu = new ArrayList<EmEdu>();
+        JdbcTemplate jdbcTemplate = new JdbcTemplate(dataSource); 
+        String sql = "select * from employee_education where em_id= ?";
+        edu = jdbcTemplate.query(sql,new Object[]{emId}, new EmRowMapperEmEdu());
+        return edu;
     }
 }

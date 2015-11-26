@@ -21,19 +21,16 @@ public class JobRowMapperJob implements RowMapper<Job> {
         Job u=new Job();
         u.Id=rs.getInt("job_id");
         u.comId =rs.getInt("com_id");
+        u.title = rs.getString("job_title");
         u.info= rs.getString("job_info");
         u.location = rs.getString("job_location");
         u.request = rs.getString("job_request");
-        u.benefit = rs.getString("job_benefit");
-        u.position = rs.getString("job_position");
+        u.respon = rs.getString("job_respon");
+        u.apply = rs.getString("job_apply");
+        u.industry = rs.getString("job_industry");
         u.cmin =rs.getInt("job_cmin");
         u.cmax =rs.getInt("job_cmax");
-        u.age = rs.getInt("job_age");
-        u.sex = rs.getString("job_sex");
         u.type = rs.getString("job_type");
-        u.exp = rs.getInt("job_exp");
-        u.country = rs.getString("job_country");
-        u.term = rs.getString("job_term");
         return u;
 
     }

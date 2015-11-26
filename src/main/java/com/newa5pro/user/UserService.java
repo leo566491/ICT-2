@@ -1,12 +1,7 @@
 package com.newa5pro.user;
 
 
-import com.newa5pro.job.Job;
-import com.newa5pro.company.ComInfo;
-import com.newa5pro.employee.EmExp;
-import com.newa5pro.employee.EmInfo;
-import java.util.ArrayList;
-import java.util.List;
+
 
 /*
  * To change this license header, choose License Headers in Project Properties.

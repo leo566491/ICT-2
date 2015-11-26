@@ -32,12 +32,6 @@ public class MainController{
       return page;
    }
    
-   @RequestMapping(value = "/test", method = RequestMethod.GET)
-   @ResponseBody
-   public String test(ModelMap model,HttpSession session) {
-       session.setAttribute("id", "id");
-        return (String)session.getAttribute("id");
-   }
 }
    
    

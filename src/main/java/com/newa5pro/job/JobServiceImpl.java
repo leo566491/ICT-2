@@ -30,11 +30,11 @@ public class JobServiceImpl implements JobService{
 
     @Override
     public void postJob(Job job) {
-        String sql = "INSERT INTO `job_id` (`com_id`, `job_info`, `job_location`, `job_request`, `job_benefit`, `job_position`) VALUES(?,?,?,?,?,?)";
+        String sql = "INSERT INTO `job_id` (`com_id`,`job_title`, `job_info`, `job_location`, `job_request`, `job_respon`, `job_apply`, `job_industry`) VALUES(?,?,?,?,?,?,?,?)";
         JdbcTemplate jdbcTemplate = new JdbcTemplate(dataSource);
-        jdbcTemplate.update(sql, new Object[] { job.comId,job.info,job.location,job.request,job.benefit,job.position});
+        jdbcTemplate.update(sql, new Object[] { job.comId,job.title,job.info,job.location,job.request,job.respon,job.apply,job.industry});
         
-        sql = "INSERT INTO `job_filter` (`job_cmin`, `job_cmax`, `job_age`, `job_sex`, `job_type`, `job_exp`, `job_country`, `job_term`) VALUES(?,?,?,?,?,?,?,?)";
-        jdbcTemplate.update(sql, new Object[] { job.cmin,job.cmax,job.age,job.sex,job.type,job.exp,job.country,job.term});
+        sql = "INSERT INTO `job_filter` (`job_cmin`, `job_cmax`,`job_type`) VALUES(?,?,?)";
+        jdbcTemplate.update(sql, new Object[] { job.cmin,job.cmax,job.type});
     }
 }

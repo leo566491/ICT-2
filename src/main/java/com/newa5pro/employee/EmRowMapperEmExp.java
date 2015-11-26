@@ -22,10 +22,9 @@ public class EmRowMapperEmExp implements RowMapper<EmExp> {
         u.Id=rs.getInt("exp_id");
         u.emId=rs.getInt("em_id");
         u.comName=rs.getString("com_name");
-        u.department=rs.getString("em_department");
-        u.position=rs.getString("em_position");
-        u.period=rs.getInt("em_period");
-        u.require = rs.getString("em_require");
+        u.respon=rs.getString("em_respon");
+        u.title=rs.getString("em_title");
+        u.period=rs.getString("em_period");
         return u;
         
 

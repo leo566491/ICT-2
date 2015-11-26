@@ -15,12 +15,13 @@ public class EmInfo {//employee infomation
     public long birth;
     public String tel;
     public String info;
-    public String national ;
     public String skill;
     public String fname;
     public String lname;
-
-
+    public String title;
+    public String industry;
+    public String location;
+    public String doc;
 
     public EmInfo() {
         

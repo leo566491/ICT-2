@@ -12,6 +12,7 @@ import java.util.List;
  * @author Fu
  */
 public interface JobService {
+    
     public List<Job> getJob();
         
     public void postJob(Job job);
