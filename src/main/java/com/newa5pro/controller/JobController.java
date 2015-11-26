@@ -3,17 +3,15 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.newa5pro.job;
+package com.newa5pro.controller;
 
-import java.util.List;
+import org.springframework.stereotype.Controller;
 
 /**
  *
- * @author Fu
+ * @author hy
  */
-public interface JobService {
+@Controller
+public class JobController {
     
-    public List<Job> getJob();
-        
-    public void postJob(Job job);
 }

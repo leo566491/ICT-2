@@ -22,4 +22,10 @@ public interface EmployeeService {
     public void addEmExp(EmExp emExp);
         
     public void deleteEmExp(int expId);
+    
+    public List<EmEdu> getEmEdu(int emId);
+        
+    public void addEmEdu(EmEdu emEdu);
+        
+    public void deleteEmEdu(int expId);
 }

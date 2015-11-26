@@ -12,20 +12,16 @@ package com.newa5pro.job;
 public class Job {
     public int Id ;
     public int comId ;
+    public String title;
     public String info;
     public String location;
     public String request;
-    public String benefit;
-    public String position;
+    public String respon;
+    public String apply;
+    public String industry;
     public int cmin;
     public int cmax;
-    public int age;
-    public String sex;
     public String type;
-    public int exp;
-    public String country;
-    public String term;
-
 
 
     public Job() {

@@ -28,13 +28,19 @@
                                 <h2>Update Your Information</h2>
                                 <div class="form-group">
                                     <label for="newEmail">Current Email Address</label>
-                                    <p>huang.yi@my.jcu.edu.au</p>
+                                    <p><span class="current_email">huang.yi@my.jcu.edu.au</span><input class="new_email" style="display:none"/></p>
                                     <button type="submit" class="btn btn-danger btn-sm"><i class="fa fa-pencil-square-o"></i> Change Email</button>
                                 </div>
                                 <br>
                                 <div class="form-group">
                                     <label for="newPwd">Current Password</label>
-                                    <p>For safety reason, your password will not be displayed here.</p>
+                                    <p>
+                                        <span class="current_pass">For safety reason, your password will not be displayed here.</span>
+                                        <span class="new_pass" style="display:none">
+                                            <input id="new_pass"/><br />
+                                            <input id="new_pass_confirm"/>
+                                        </span>
+                                    </p>
                                     <button type="submit" class="btn btn-danger btn-sm"><i class="fa fa-pencil-square-o"></i> Change Password</button>
                                 </div>
                             </form>

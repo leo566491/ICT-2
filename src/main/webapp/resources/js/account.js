@@ -66,8 +66,18 @@ acnt.getFormObj = function (f) {
     });
     return o;
 };
-
-
+/*
+acnt.flapper = function () {
+    var flag = false;
+    return function (action) {
+        flag = !flag;
+        action.call(flag);
+    };
+};
+acnt.edit = acnt.flapper(function (flag) {
+    console.log(flag);
+});
+*/
 $('#login-btn').click(function (e) {
     e.preventDefault();
     var email = $('#login-email').val();
@@ -100,4 +110,15 @@ $('#register-com-btn').click(function (e) {
 $.post("/info", {}, function (data) {
     var res = JSON.parse(data);
     acnt.setMenu(res['type']);
+});
+
+$(document).ready(function(){
+  $('.editor-form').submit(function(e){
+    $('#about_me').val($('#resume-about-me').html());
+    $('#my_skill').val($('#resume-my-skills').html());
+    $('#responsibilities').val($('#job-responsibilities').html());
+    $('#requirements').val($('#job-requirements').html());
+    $('#other_info').val($('#other-information').html());
+    $('#apply').val($('#job-apply').html());
+  });
 });

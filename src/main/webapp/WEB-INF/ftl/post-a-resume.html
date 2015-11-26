@@ -10,7 +10,7 @@
             </div>
         </div>
         <hr>
-        <form>
+        <form id="resume-form" class="editor-form" action="http://localhost" method="post">
             <!-- Resume Details Start -->
             <div class="row">
                 <div class="col-sm-6">
@@ -21,7 +21,7 @@
                 <div class="col-sm-6">
                     <div class="form-group" id="resume-photo-group">
                         <label for="resume-photo">Photo</label>
-                        <input type="file" id="resume-photo">
+                        <input type="file" name="photo" id="resume-photo">
                     </div>
                 </div>
             </div>
@@ -29,13 +29,13 @@
                 <div class="col-sm-6">
                     <div class="form-group" id="resume-name-group">
                         <label for="resume-name">Full Name</label>
-                        <input type="text" class="form-control" id="resume-name" placeholder="e.g. Bill Fulford">
+                        <input type="text" class="form-control" name="name" id="resume-name" placeholder="e.g. Bill Fulford">
                     </div>
                 </div>
                 <div class="col-sm-6">
                     <div class="form-group" id="resume-title-group">
                         <label for="resume-title">Title</label>
-                        <input type="text" class="form-control" id="resume-title" placeholder="e.g. Web Designer">
+                        <input type="text" class="form-control" name="title" id="resume-title" placeholder="e.g. Web Designer">
                     </div>
                 </div>
             </div>
@@ -43,7 +43,7 @@
                 <div class="col-sm-6">
                     <div class="form-group" id="resume-email-group">
                         <label for="resume-email">Email</label>
-                        <input type="email" class="form-control" id="resume-email" placeholder="name@yourdomain.com">
+                        <input type="email" class="form-control" name="email" id="resume-email" placeholder="name@yourdomain.com">
                     </div>
                 </div>
                 <div class="col-sm-6">
@@ -51,13 +51,13 @@
                     <div class="form-group" id="resume-dob">
                         <div class="row">
                             <div class="col-sm-3">
-                                <select id="dobday" class="form-control"></select>
+                                <select id="dobday" name="dobday" class="form-control"></select>
                             </div>
                             <div class="col-sm-3">
-                                <select id="dobmonth" class="form-control"></select>
+                                <select id="dobmonth" name="dobmonth" class="form-control"></select>
                             </div>
                             <div class="col-sm-3">
-                                <select id="dobyear" class="form-control"></select>
+                                <select id="dobyear" name="dobyear" class="form-control"></select>
                             </div>
                         </div>
                     </div>
@@ -67,7 +67,7 @@
                 <div class="col-sm-6">
                     <div class="form-group" id="resume-contact-number">
                         <label for="resume-contact-number">Contact Number</label>
-                        <input type="number" class="form-control" id="resume-contact-number" placeholder="e.g. 87105485">
+                        <input type="number" class="form-control" id="resume-contact-number" name="contact_number" placeholder="e.g. 87105485">
                     </div>
                 </div>
                 <div class="col-sm-6">
@@ -88,13 +88,13 @@
                 <div class="col-sm-6">
                     <div class="form-group" id="resume-location">
                         <label for="resume-location">Location</label>
-                        <input type="text" class="form-control" id="resume-location" placeholder="e.g. Singapore">
+                        <input type="text" class="form-control" id="resume-location" name="location" placeholder="e.g. Singapore">
                     </div>
                 </div>
                 <div class="col-sm-6">
                     <div class="form-group" id="resume-skills">
                         <label for="resume-skills">Key Skills</label>
-                        <input type="text" class="form-control" id="tokenfield" />
+                        <input type="text" class="form-control" id="tokenfield" name="key_skills"/>
                     </div>
                 </div>
             </div>
@@ -139,6 +139,7 @@
                         </div>
 
                         <div class="editor1" id="resume-about-me" contenteditable="true">My name is </div>
+                        <input id="about_me" type="hidden" name="about_me" value="my name">
                     </div>
                     <div class="form-group wysiwyg" id="wysiwyg-resume-my-skills">
                         <label>My Skills</label>
@@ -174,6 +175,7 @@
                         </div>
 
                         <div class="editor2" id="resume-my-skills" contenteditable="true">I have </div>
+                        <input id="my_skill" type="hidden" name="my_skill" value="">
                     </div>
                 </div>
             </div>
@@ -307,7 +309,7 @@
             <div class="row text-center">
                 <div class="col-sm-12">
                     <p>&nbsp;</p>
-                    <a href="#" class="btn btn-primary btn-lg">Submit <i class="fa fa-arrow-right"></i></a>
+                    <button class="btn btn-primary btn-lg">Submit <i class="fa fa-arrow-right"></i></button>
                 </div>
             </div>
 

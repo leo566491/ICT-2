@@ -9,21 +9,17 @@ package com.newa5pro.employee;
  *
  * @author Fu
  */
-public class EmInfo {//employee infomation
+public class EmEdu {
     public int Id ;
-    public String pic ;
-    public long birth;
-    public String tel;
+    public int emId;
+    public String academy ;
+    public String major;
+    public String year;
     public String info;
-    public String skill;
-    public String fname;
-    public String lname;
-    public String title;
-    public String industry;
-    public String location;
-    public String doc;
 
-    public EmInfo() {
+
+
+    public EmEdu() {
         
     }
 

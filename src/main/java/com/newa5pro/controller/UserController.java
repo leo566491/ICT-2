@@ -65,6 +65,13 @@ public class UserController {
         }
         return res.toString();
     }
+    
+     @RequestMapping(value = "/logout")//add post when deployed
+    public @ResponseBody
+    String logout(HttpSession session) throws JSONException {
+        session.invalidate();
+        return "success";
+    }
 
     @RequestMapping(value = "/reg/{type}", method = RequestMethod.POST)
     public @ResponseBody
@@ -83,6 +90,26 @@ public class UserController {
             return "fail";
         }
 
+    }
+    
+    @RequestMapping(value = "/change/passwd", method = RequestMethod.POST)//add post when deployed
+    public @ResponseBody
+    String changePasswd(HttpSession session, @RequestParam(value = "passwd") String passwd) throws JSONException {
+        
+        Integer id=(Integer)session.getAttribute("id");
+        if(id!=null){
+            return "success";
+        } else {
+            return "fail";
+        }
+        //return "success";
+    }
+    
+    @RequestMapping(value = "/change/email", method = RequestMethod.POST)//add post when deployed
+    public @ResponseBody
+    String changeEmail(HttpSession session, @RequestParam(value = "email") String email) throws JSONException {
+        return email;
+        //return "success";
     }
 
 }

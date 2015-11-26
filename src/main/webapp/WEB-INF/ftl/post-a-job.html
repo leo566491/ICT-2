@@ -10,21 +10,21 @@
             </div>
         </div>
         <hr>
-        <form>
+        <form id="job-form" class="editor-form" action="/job/add" method="post">
             <div class="row">
                 <div class="col-sm-8 col-centered">
                     <h2>Job Details</h2>
                     <div class="form-group" id="job-title">
                         <label for="job-title">Job Title</label>
-                        <input type="text" class="form-control" id="job-title" placeholder="What job position is available?">
+                        <input type="text" class="form-control" name="job-title" placeholder="What job position is available?">
                     </div>
                     <div class="form-group" id="job-location">
                         <label for="job-location">Location</label>
-                        <input type="text" class="form-control" id="job-location" placeholder="E.g. Singapore">
+                        <input type="text" class="form-control" name="job-location" placeholder="E.g. Singapore">
                     </div>
                     <div class="form-group" id="job-type">
                         <label for="job-type">Job Type</label>
-                        <select class="form-control" id="job-type">
+                        <select class="form-control" name="job-type">
                             <option>Choose a job type</option>
                             <option>Part Time</option>
                             <option>Full Time</option>
@@ -33,7 +33,7 @@
                     </div>
                     <div class="form-group" id="job-industry">
                         <label for="job-industry">Job Industry</label>
-                        <select class="form-control" id="job-industry">
+                        <select class="form-control" name="job-industry">
                             <option>Choose a category</option>
                             <option>Internet Services</option>
                             <option>Banking</option>
@@ -46,7 +46,7 @@
                         <label for="job-salary">Salary (Amount in dollars)</label>
                         <div class="input-group">
                             <div class="input-group-addon">$</div>
-                            <input type="number" class="form-control" id="job-salary" placeholder="How much you would like to pay?">
+                            <input type="number" class="form-control" name="job-salary" placeholder="How much you would like to pay?">
                             <div class="input-group-addon">.00</div>
                         </div>
                     </div>
@@ -82,8 +82,8 @@
                                 <a class="btn" data-edit="redo" title="Redo (Ctrl/Cmd+Y)"><i class="fa fa-repeat"></i></a>
                             </div>
                         </div>
-
                         <div class="editor1" id="job-responsibilities" contenteditable="true">We need </div>
+                        <input id="responsibilities" type="hidden" name="responsibilities" value="">
                     </div>
                     <div class="form-group wysiwyg" id="wysiwyg-job-requirements">
                         <label>Job Requirements</label>
@@ -119,6 +119,7 @@
                         </div>
 
                         <div class="editor2" id="job-requirements" contenteditable="true">We require </div>
+                        <input id="requirements" type="hidden" name="requirements" value="">
                     </div>
                     <div class="form-group wysiwyg" id="wysiwyg-other-information">
                         <label>Other Information</label>
@@ -154,6 +155,7 @@
                         </div>
 
                         <div class="editor3" id="other-information" contenteditable="true">Other important information </div>
+                        <input id="other_info" type="hidden" name="other_info" value="">
                     </div>
 
                     <div class="form-group wysiwyg" id="wysiwyg-job-apply">
@@ -189,12 +191,13 @@
                             </div>
                         </div>
                         <div class="editor4" id="job-apply" contenteditable="true">Kindly send your application to </div>
+                        <input id="apply" type="hidden" name="apply" value="">
                     </div>
                 </div>
             </div>
             <div class="row text-center">
                 <p>&nbsp;</p>
-                <a href="#" class="btn btn-primary btn-lg">Submit <i class="fa fa-arrow-up"></i></a>
+                <button class="btn btn-primary btn-lg">Submit <i class="fa fa-arrow-up"></i></button>
             </div>
         </form>
 

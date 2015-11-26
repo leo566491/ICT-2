@@ -13,10 +13,9 @@ public class EmExp {//employee experian
     public int Id ;
     public int emId;
     public String comName ;
-    public String department;
-    public String position;
-    public int period;
-    public String require;
+    public String title;
+    public String respon;
+    public String period;
 
 
 

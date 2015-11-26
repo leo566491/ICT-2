@@ -5,7 +5,6 @@
  */
 package com.newa5pro.employee;
 
-import com.newa5pro.employee.EmExp;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import org.springframework.jdbc.core.RowMapper;
@@ -14,17 +13,17 @@ import org.springframework.jdbc.core.RowMapper;
  *
  * @author Fu
  */
-public class EmRowMapperEmExp implements RowMapper<EmExp> {
+public class EmRowMapperEmEdu implements RowMapper<EmEdu> {
 
     @Override
-    public EmExp mapRow(ResultSet rs,int i) throws SQLException {  
-        EmExp u=new EmExp();
-        u.Id=rs.getInt("exp_id");
+    public EmEdu mapRow(ResultSet rs,int i) throws SQLException {  
+        EmEdu u=new EmEdu();
+        u.Id=rs.getInt("edu_id");
         u.emId=rs.getInt("em_id");
-        u.comName=rs.getString("com_name");
-        u.respon=rs.getString("em_respon");
-        u.title=rs.getString("em_title");
-        u.period=rs.getString("em_period");
+        u.academy=rs.getString("em_academy");
+        u.major=rs.getString("em_major");
+        u.year=rs.getString("em_year");
+        u.info=rs.getString("em_info");
         return u;
         
 
