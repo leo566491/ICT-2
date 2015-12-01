@@ -528,8 +528,7 @@
         // Tokenfield Tag
 
         $('#tokenfield').tokenfield({
-            autocomplete: {
-                source: ['HTML', 'CSS', 'Photoshop', 'Office', 'Presentation', 'Front End Development', 'Management', 'Back End Development', 'Public Speaking'],
+            autocomplete: {                
                 delay: 100,
                 beautify: true
             },
