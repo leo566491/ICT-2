@@ -194,18 +194,15 @@
 }
 
 .flexmenu.fm-sm ul ul li ul li a {
-    background-color:#777
-}
-
-.flexmenu.fm-sm ul ul li ul li a:hover,.flexmenu.fm-sm ul ul li ul li a.active {
-    background-color:#6a6a6a
+    color: #666;
+    padding-left: 60px;
 }
 
 .flexmenu.fm-sm .navicon {
     position:absolute;
     top:0;
     right:0;
-    height:100%;
+    height:3em;
     width:50px;
 }
 

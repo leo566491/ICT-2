@@ -528,7 +528,8 @@
         // Tokenfield Tag
 
         $('#tokenfield').tokenfield({
-            autocomplete: {                
+            autocomplete: {
+                source: ['HTML', 'CSS', 'Photoshop', 'Office', 'Presentation', 'Front End Development', 'Management', 'Back End Development', 'Public Speaking'],
                 delay: 100,
                 beautify: true
             },
@@ -594,39 +595,33 @@
 
         // Adding rows in forms
 
-        // 1. Adding social networks
+        // 1. Adding experience
 
-        var NewSocialNetwork = '<div class="row social-network"><div class="col-sm-6"><div class="form-group" id="resume-social-network-group"><label for="resume-social-network">Choose Social Network</label><select  class="form-control" id="resume-social-network"><option>Choose social network</option><option>Facebook</option><option>Twitter</option><option>Google+</option></select></div></div><div class="col-sm-6"><div class="form-group" id="resume-social-network-url-group"><label for="resume-social-network-url">URL</label><input type="text" class="form-control" id="resume-social-network-url" placeholder="http://"></div></div></div><div class="row"><div class="col-sm-12"><hr class="dashed"></div></div>'
-
-        $("#add-social-network").click(function () {
-            $(this).parent().parent().parent().before(NewSocialNetwork);
-        });
-
-        // 2. Adding experience
-
-        var NewExperience = '<div class="exp_box">'+$('.exp_box').html()+'</div>';
+        var NewExperience = '<div class="exp_box">' + $('.exp_box').html() + '</div>';
 
         $("#add-experience").click(function () {
             $(this).parent().parent().parent().before(NewExperience);
         });
 
-        // 3. Adding education
+        // 2. Adding education
 
-        var NewEducation = '<div class="edu_box">'+$('.edu_box').html()+'</div>';
+        var NewEducation = '<div class="edu_box">' + $('.edu_box').html() + '</div>';
 
         $("#add-education").click(function () {
             $(this).parent().parent().parent().before(NewEducation);
         });
 
+        // 3. Delete experience
+
         $("#delete-experience").click(function () {
-            var arr=$('.exp_box');
+            var arr = $('.exp_box');
             console.log($(arr.last()).remove());
         });
 
-        // 3. Adding education
+        // 4. Delete education
 
         $("#delete-education").click(function () {
-            var arr=$('.edu_box');
+            var arr = $('.edu_box');
             console.log($(arr.last()).remove());
         });
 

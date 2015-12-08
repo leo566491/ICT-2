@@ -30,13 +30,13 @@
                                 <div class="form-group">
                                     <label for="newEmail">Current Email Address</label>
                                     <p>coca-cola@email.com</p>
-                                    <button type="submit" class="btn btn-danger btn-sm"><i class="fa fa-pencil-square-o"></i> Change Email</button>
+                                    <button type="button" class="btn btn-danger btn-sm" data-target="#update-email" data-toggle="modal"><i class="fa fa-pencil-square-o"></i> Change Email Address</button>
                                 </div>
                                 <br>
                                 <div class="form-group">
                                     <label for="newPwd">Current Password</label>
                                     <p>For safety reason, your password will not be displayed here.</p>
-                                    <button type="submit" class="btn btn-danger btn-sm"><i class="fa fa-pencil-square-o"></i> Change Password</button>
+                                    <button type="button" class="btn btn-danger btn-sm" data-target="#update-pwd" data-toggle="modal"><i class="fa fa-pencil-square-o"></i> Change Password</button>
                                 </div>
                             </form>
                         </div>
@@ -182,43 +182,6 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="row">
-                                    <div class="col-sm-12">
-                                        <hr class="dashed">
-                                    </div>
-                                </div>
-                                <div class="row social-network">
-                                    <div class="col-sm-6">
-                                        <div class="form-group" id="cp-com-social-group">
-                                            <label for="cp-com-social">Choose Social Network</label>
-                                            <select class="form-control" id="cp-com-social">
-                                                <option>Choose social network</option>
-                                                <option>Facebook</option>
-                                                <option>Twitter</option>
-                                                <option>Google+</option>
-                                            </select>
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-6">
-                                        <div class="form-group" id="cp-com-social-url-group">
-                                            <label for="cp-com-social-url">URL</label>
-                                            <input type="text" class="form-control" id="cp-com-social-url" placeholder="http://">
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-sm-12">
-                                        <hr class="dashed">
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-sm-6">
-                                        <p><a id="add-social-network">+ Add Social Network</a></p>
-                                    </div>
-                                    <div class="col-sm-6">
-                                        <p><a id="delete-social-network" class="pull-right">- Delete Social Network</a></p>
-                                    </div>
-                                </div>
                                 <hr>
                                 <!-- Resume Details End -->
 
@@ -228,9 +191,7 @@
                                         <a href="#" class="btn btn-danger"><i class="fa fa-check"></i> Save</a>
                                     </div>
                                 </div>
-
                             </form>
-
                         </div>
                         <div role="tabpanel" class="tab-pane" id="comJobs">
                             <hr class="dashed">
@@ -239,45 +200,41 @@
                             <table class="tablesaw" data-tablesaw-sortable data-tablesaw-sortable-switch>
                                 <thead>
                                     <tr>
-                                        <th data-tablesaw-sortable-col data-tablesaw-sortable-default-col data-tablesaw-priority="persist"><i class="fa fa-file-text"></i> Job Titles</th>
-                                        <th data-tablesaw-sortable-col data-tablesaw-priority="1"><i class="fa fa-refresh fa-spin"></i> Job's Status</th>
-                                        <th data-tablesaw-sortable-col data-tablesaw-priority="2"><i class="fa fa-calendar"></i> Date Posted</th>
-                                        <th data-tablesaw-sortable-col data-tablesaw-priority="3"><i class="fa fa-users"></i> No. Applications</th>
-                                        <th data-tablesaw-priority="4"><i class="fa fa-sliders"></i> Action</th>
+                                        <th data-tablesaw-sortable-col data-tablesaw-sortable-default-col><i class="fa fa-file-text"></i> Job Titles</th>
+                                        <th data-tablesaw-sortable-col data-sortable-numeric><i class="fa fa-calendar"></i> Date Posted</th>
+                                        <th data-tablesaw-sortable-col data-sortable-numeric><i class="fa fa-users"></i> No. Applications</th>
+                                        <th><i class="fa fa-refresh fa-spin"></i> Action</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     <tr>
                                         <td class="title"><a href="#">Marketing Coordinator - SEO Experience</a></td>
-                                        <td class="pending">On Going</td>
                                         <td>September 19, 2015</td>
-                                        <td>2</td>
+                                        <td><a data-target="#view-candidates" data-toggle="modal">3</a></td>
                                         <td class="action">
-                                            <a class="link-register"><i class="fa fa-pencil"></i> Edit</a>
+                                            <a href="#"><i class="fa fa-pencil"></i> Edit</a>
                                             <br>
-                                            <a class="link-login"><i class="fa fa-remove"></i> Delete</a>
+                                            <a href="#"><i class="fa fa-remove"></i> Delete</a>
                                         </td>
                                     </tr>
                                     <tr>
                                         <td class="title"><a href="#">Power Systems User Experience Designer</a></td>
-                                        <td class="approved">Full</td>
                                         <td>October 01, 2015</td>
-                                        <td>3</td>
+                                        <td><a data-target="#view-candidates" data-toggle="modal">10</a></td>
                                         <td class="action">
-                                            <a href="#" class="edit"><i class="fa fa-pencil"></i> Edit</a>
+                                            <a href="#" ><i class="fa fa-pencil"></i> Edit</a>
                                             <br>
-                                            <a href="#" class="delete"><i class="fa fa-remove"></i> Delete</a>
+                                            <a href="#"><i class="fa fa-remove"></i> Delete</a>
                                         </td>
                                     </tr>
                                     <tr>
                                         <td class="title"><a href="#">Web Developer - Front End Web Development</a></td>
-                                        <td class="rejected">Closed</td>
                                         <td>October 12, 2015</td>
-                                        <td>4</td>
+                                        <td><a data-target="#view-candidates" data-toggle="modal">7</a></td>
                                         <td class="action">
-                                            <a href="#" class="edit"><i class="fa fa-pencil"></i> Edit</a>
+                                            <a href="#"><i class="fa fa-pencil"></i> Edit</a>
                                             <br>
-                                            <a href="#" class="delete"><i class="fa fa-remove"></i> Delete</a>
+                                            <a href="#"><i class="fa fa-remove"></i> Delete</a>
                                         </td>
                                     </tr>
                                 </tbody>

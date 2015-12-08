@@ -1926,6 +1926,58 @@ label {
 }
 
 
+/* 16. MODAL WINDOWS FORMS
+-------------------------------------------------------------------*/
+.modal {
+    background: rgba(0, 0, 0, 0.8);
+    z-index: 10000;
+}
+
+.modal-md {
+    width: 400px;
+}
+
+.nav-pills-form {
+    background: #fff;
+    border-radius: 0 0 5px 5px;
+    padding: 30px;
+}
+
+.modal-content form {
+    background: #fff;
+    border-radius: 0 0 5px 5px;
+    padding: 30px;
+}
+
+.modal-content hr {
+    margin: 30px 0;
+}
+
+.modal-content .btn {
+    color: #fff;
+    margin: 5px 0;
+    padding: 10px 0;
+    text-align: center;
+    width: 100%;
+}
+
+.modal-header {
+    background: #14b1bb;
+    border-radius: 5px 5px 0 0;
+    padding: 30px;
+}
+
+.modal-header h2 {
+    color: #fff;
+    margin: 0;
+    padding: 0;
+}
+
+.modal-header h2::after {
+    display: none;
+}
+
+
 /* 17. MOBILE SITES
 -------------------------------------------------------------------*/
 

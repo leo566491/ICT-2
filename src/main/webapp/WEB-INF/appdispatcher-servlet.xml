@@ -15,7 +15,7 @@
     <mvc:annotation-driven/>
     <mvc:resources mapping="/resources/**" location="/resources/" />
     <!-- 自动扫描包 -->   
-    <context:component-scan base-package="com.newa5pro.controller" />
+    <context:component-scan base-package="com.laborbond.controller" />
        
  
     <bean class="org.springframework.web.servlet.view.freemarker.FreeMarkerConfigurer">  
@@ -28,15 +28,15 @@
         <property name="requestContextAttribute" value="rc" />  
     </bean> 
     
-    <bean id="userService" class="com.newa5pro.user.UserServiceImpl" >
+    <bean id="userService" class="com.laborbond.user.UserServiceImpl" >
     </bean>
-    <bean id="employeeService" class="com.newa5pro.employee.EmployeeServiceImpl" >
+    <bean id="employeeService" class="com.laborbond.employee.EmployeeServiceImpl" >
     </bean> 
-    <bean id="jobService" class="com.newa5pro.job.JobServiceImpl" >
+    <bean id="jobService" class="com.laborbond.job.JobServiceImpl" >
     </bean>
-    <bean id="companyService" class="com.newa5pro.company.CompanyServiceImpl" >
+    <bean id="companyService" class="com.laborbond.company.CompanyServiceImpl" >
     </bean>
-    <bean id="skillService" class="com.newa5pro.skill.SkillServiceImpl" >
+    <bean id="skillService" class="com.laborbond.skill.SkillServiceImpl" >
     </bean>
     
     <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource"
