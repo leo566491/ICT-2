@@ -274,7 +274,7 @@
 
         // ====================================================================
 
-        // Jobs
+        // Show More Or Less Jobs
 
         $("#more-jobs").click(function () {
             $(this).toggleClass('on');
@@ -422,7 +422,7 @@
 
         // ====================================================================
 
-        // Bootstrap Wysiwyg
+        // Bootstrap Wysiwyg Editor
 
         $('.editor1').wysiwyg({
             toolbarSelector: '[data-role=editor1-toolbar]'
@@ -464,7 +464,7 @@
 
         // ====================================================================
 
-        // Typed.js Plugin Uses To Type Words Automatically
+        // Typed.js - Type Words Automatically
 
         $(function () {
             $(".aboutCompany").typed({
@@ -552,30 +552,6 @@
 
         $('.fancybox').fancybox({
             openEffect: 'none'
-        });
-
-        // ====================================================================
-
-        // Register & Login
-
-        $(".link-login").click(function () {
-            $("#login").fadeIn(300);
-            $("body").addClass("no-scroll");
-        });
-
-        $("#login .close").click(function () {
-            $("#login").fadeOut(300);
-            $("body").removeClass("no-scroll");
-        });
-
-        $(".link-register").click(function () {
-            $("#register").fadeIn(300);
-            $("body").addClass("no-scroll");
-        });
-
-        $("#register .close").click(function () {
-            $("#register").fadeOut(300);
-            $("body").removeClass("no-scroll");
         });
 
         // ====================================================================

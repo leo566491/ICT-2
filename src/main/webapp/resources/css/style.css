@@ -1640,7 +1640,7 @@ label {
     text-align: center;
 }
 
-.pending {
+.going {
     color: #186d97;
     font-weight: bold;
 }
@@ -1650,9 +1650,14 @@ label {
     font-weight: bold;
 }
 
-.rejected {
+.closed {
     color: #b73827;
     font-weight: bold;
+}
+
+.closed-job {
+    color: #b73827;
+    text-decoration: line-through;
 }
 
 .tablesaw {
@@ -1929,7 +1934,6 @@ label {
 /* 16. MODAL WINDOWS FORMS
 -------------------------------------------------------------------*/
 .modal {
-    background: rgba(0, 0, 0, 0.8);
     z-index: 10000;
 }
 

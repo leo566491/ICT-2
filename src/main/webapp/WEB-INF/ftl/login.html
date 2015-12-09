@@ -1,23 +1,27 @@
 <!-- ============ POPUP LOGIN START ============ -->
 
-<div class="popup" id="login">
-    <div class="popup-form">
-        <div class="popup-header">
-            <a class="close"><i class="fa fa-remove fa-lg"></i></a>
-            <h2>Login</h2>
+<div id="login" class="modal fade" role="dialog" data-keyboard="false" data-backdrop="static">
+    <div class="modal-dialog">        
+        <div class="modal-content">
+            <div class="modal-header">
+                <a class="close" data-dismiss="modal"><i class="fa fa-remove fa-lg"></i></a>
+                <h2>Login</h2>
+            </div>
+            <div class="modal-body">
+                <form>
+                    <span id='login-warning'></span>
+                    <div class="form-group">
+                        <label for="login-email">Email</label>
+                        <input type="email" class="form-control" id="login-email">
+                    </div>
+                    <div class="form-group">
+                        <label for="login-password">Password</label>
+                        <input type="password" class="form-control" id="login-password">
+                    </div>
+                    <button id="login-btn" type='submit' class="btn btn-primary">Sign In</button>
+                </form>
+            </div>
         </div>
-        <form>
-            <span id='login-warning'></span>
-            <div class="form-group">
-                <label for="login-email">Email</label>
-                <input type="email" class="form-control" id="login-email">
-            </div>
-            <div class="form-group">
-                <label for="login-password">Password</label>
-                <input type="password" class="form-control" id="login-password">
-            </div>
-            <button id="login-btn" type='submit' class="btn btn-primary">Sign In</button>
-        </form>
     </div>
 </div>
 

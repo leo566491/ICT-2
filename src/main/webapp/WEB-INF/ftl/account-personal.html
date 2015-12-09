@@ -28,20 +28,14 @@
                                 <h2>Update Your Information</h2>
                                 <div class="form-group">
                                     <label for="newEmail">Current Email Address</label>
-                                    <p><span class="current_email">huang.yi@my.jcu.edu.au</span><input class="new_email" style="display:none"/></p>
-                                    <button type="submit" class="btn btn-danger btn-sm"><i class="fa fa-pencil-square-o"></i> Change Email</button>
+                                    <p>coca-cola@email.com</p>
+                                    <button type="button" class="btn btn-danger btn-sm" data-target="#update-email" data-toggle="modal"><i class="fa fa-pencil-square-o"></i> Change Email Address</button>
                                 </div>
                                 <br>
                                 <div class="form-group">
                                     <label for="newPwd">Current Password</label>
-                                    <p>
-                                        <span class="current_pass">For safety reason, your password will not be displayed here.</span>
-                                        <span class="new_pass" style="display:none">
-                                            <input id="new_pass"/><br />
-                                            <input id="new_pass_confirm"/>
-                                        </span>
-                                    </p>
-                                    <button type="submit" class="btn btn-danger btn-sm"><i class="fa fa-pencil-square-o"></i> Change Password</button>
+                                    <p>For safety reason, your password will not be displayed here.</p>
+                                    <button type="button" class="btn btn-danger btn-sm" data-target="#update-pwd" data-toggle="modal"><i class="fa fa-pencil-square-o"></i> Change Password</button>
                                 </div>
                             </form>
                         </div>
@@ -51,41 +45,22 @@
                                 <!-- Resume Details Start -->
                                 <div class="row">
                                     <div class="col-sm-6">
-                                        <h2>My Resume Details</h2>
-                                        <strong>Resume Status</strong>
-                                        <div class="progress">
-                                            <div class="progress-bar progress-bar-warning progress-bar-striped active" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" style="width: 70%">70%
-                                            </div>
-                                        </div>
+                                        <h2>Update Resume Details</h2>
                                     </div>
                                 </div>
                                 <div class="row">
                                     <div class="col-sm-6">
                                         <div class="form-group" id="resume-photo-group">
                                             <label for="resume-photo">Photo</label>
-                                            <input type="file" id="resume-photo">
+                                            <input type="file" name="photo" id="resume-photo">
                                         </div>
                                     </div>
                                 </div>
                                 <div class="row">
-                                    <div class="col-sm-6">
-                                        <div class="form-group" id="resume-name-group">
-                                            <label for="resume-name">Full Name</label>
-                                            <input type="text" class="form-control" id="resume-name" placeholder="e.g. Bill Fulford">
-                                        </div>
-                                    </div>
                                     <div class="col-sm-6">
                                         <div class="form-group" id="resume-title-group">
                                             <label for="resume-title">Title</label>
-                                            <input type="text" class="form-control" id="resume-title" placeholder="e.g. Web Designer">
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-sm-6">
-                                        <div class="form-group" id="resume-email-group">
-                                            <label for="resume-email">Email</label>
-                                            <input type="email" class="form-control" id="resume-email" placeholder="name@yourdomain.com">
+                                            <input type="text" class="form-control" name="title" id="resume-title" placeholder="e.g. Web Designer">
                                         </div>
                                     </div>
                                     <div class="col-sm-6">
@@ -93,13 +68,13 @@
                                         <div class="form-group" id="resume-dob">
                                             <div class="row">
                                                 <div class="col-sm-3">
-                                                    <select id="dobday" class="form-control"></select>
-                                                </div>
-                                                <div class="col-sm-4">
-                                                    <select id="dobmonth" class="form-control"></select>
+                                                    <select id="dobday" name="dobday" class="form-control"></select>
                                                 </div>
                                                 <div class="col-sm-3">
-                                                    <select id="dobyear" class="form-control"></select>
+                                                    <select id="dobmonth" name="dobmonth" class="form-control"></select>
+                                                </div>
+                                                <div class="col-sm-3">
+                                                    <select id="dobyear" name="dobyear" class="form-control"></select>
                                                 </div>
                                             </div>
                                         </div>
@@ -109,19 +84,19 @@
                                     <div class="col-sm-6">
                                         <div class="form-group" id="resume-contact-number">
                                             <label for="resume-contact-number">Contact Number</label>
-                                            <input type="number" class="form-control" id="resume-contact-number" placeholder="e.g. 87105485">
+                                            <input type="number" class="form-control" id="resume-contact-number" name="contact_number" placeholder="e.g. 87105485">
                                         </div>
                                     </div>
                                     <div class="col-sm-6">
                                         <div class="form-group" id="resume-industry">
                                             <label for="resume-industry">Job Industry</label>
-                                            <select class="form-control" id="resume-industry">
-                                                <option>Choose an industry</option>
-                                                <option>Internet Services</option>
-                                                <option>Banking</option>
-                                                <option>Financial</option>
-                                                <option>Marketing</option>
-                                                <option>Management</option>
+                                            <select class="form-control" id="resume-industry" name="industry">
+                                                <option value="">Choose an industry</option>
+                                                <option value="Internet Services">Internet Services</option>
+                                                <option value="Banking">Banking</option>
+                                                <option value="Financial">Financial</option>
+                                                <option value="Marketing">Marketing</option>
+                                                <option value="Management">Management</option>
                                             </select>
                                         </div>
                                     </div>
@@ -130,13 +105,13 @@
                                     <div class="col-sm-6">
                                         <div class="form-group" id="resume-location">
                                             <label for="resume-location">Location</label>
-                                            <input type="text" class="form-control" id="resume-location" placeholder="e.g. Singapore">
+                                            <input type="text" class="form-control" id="resume-location" name="location" placeholder="e.g. Singapore">
                                         </div>
                                     </div>
                                     <div class="col-sm-6">
                                         <div class="form-group" id="resume-skills">
                                             <label for="resume-skills">Key Skills</label>
-                                            <input type="text" class="form-control" id="tokenfield" />
+                                            <input type="text" class="form-control" id="tokenfield" name="key_skills"/>
                                         </div>
                                     </div>
                                 </div>
@@ -181,6 +156,7 @@
                                             </div>
 
                                             <div class="editor1" id="resume-about-me" contenteditable="true">My name is </div>
+                                            <input id="about_me" type="hidden" name="about_me" value="my name">
                                         </div>
                                         <div class="form-group wysiwyg" id="wysiwyg-resume-my-skills">
                                             <label>My Skills</label>
@@ -216,6 +192,7 @@
                                             </div>
 
                                             <div class="editor2" id="resume-my-skills" contenteditable="true">I have </div>
+                                            <input id="my_skill" type="hidden" name="my_skill" value="">
                                         </div>
                                     </div>
                                 </div>
@@ -224,39 +201,6 @@
                                         <hr class="dashed">
                                     </div>
                                 </div>
-                                <div class="row social-network">
-                                    <div class="col-sm-6">
-                                        <div class="form-group" id="resume-social-network-group">
-                                            <label for="resume-social-network">Choose Social Network</label>
-                                            <select class="form-control" id="resume-social-network">
-                                                <option>Choose social network</option>
-                                                <option>Facebook</option>
-                                                <option>Twitter</option>
-                                                <option>Google+</option>
-                                            </select>
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-6">
-                                        <div class="form-group" id="resume-social-network-url-group">
-                                            <label for="resume-social-network-url">URL</label>
-                                            <input type="text" class="form-control" id="resume-social-network-url" placeholder="http://">
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-sm-12">
-                                        <hr class="dashed">
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-sm-6">
-                                        <p><a id="add-social-network">+ Add Social Network</a></p>
-                                    </div>
-                                    <div class="col-sm-6">
-                                        <p><a id="delete-social-network" class="pull-right">- Delete Social Network</a></p>
-                                    </div>
-                                </div>
-                                <hr>
                                 <!-- Resume Details End -->
 
                                 <!-- Experience Start -->
@@ -266,37 +210,40 @@
                                         <h2>Experience</h2>
                                     </div>
                                 </div>
-                                <div class="row experience">
-                                    <div class="col-sm-6">
-                                        <div class="form-group" id="resume-employer-group">
-                                            <label for="resume-employer">Employer</label>
-                                            <input type="text" class="form-control" id="resume-employer" placeholder="Company name">
+                                <div class="exp_box">
+                                    <div class="row experience">
+                                        <div class="col-sm-6">
+                                            <div class="form-group" id="resume-employer-group">
+                                                <label for="resume-employer">Employer</label>
+                                                <input type="text" class="form-control" id="resume-employer" name="employer" placeholder="Company name">
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <div class="form-group" id="resume-experience-dates-group">
+                                                <label for="resume-experience-dates">Start/End Date</label>
+                                                <input type="text" class="form-control" id="resume-experience-dates" name="experience-dates" placeholder="e.g. April 2010 - June 2013">
+                                            </div>
                                         </div>
                                     </div>
-                                    <div class="col-sm-6">
-                                        <div class="form-group" id="resume-experience-dates-group">
-                                            <label for="resume-experience-dates">Start/End Date</label>
-                                            <input type="text" class="form-control" id="resume-experience-dates" placeholder="e.g. April 2010 - June 2013">
+                                    <div class="row">
+                                        <div class="col-sm-6">
+                                            <div class="form-group" id="resume-job-title-group">
+                                                <label for="resume-job-title">Job Title</label>
+                                                <input type="text" class="form-control" id="resume-job-title" name="job-title" placeholder="e.g. Web Designer">
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <div class="form-group" id="resume-responsibilities-group">
+                                                <label for="resume-responsibilities">Responsibilities (Optional)</label>
+                                                <input type="text" class="form-control" id="resume-responsibilities" name="responsibilities" placeholder="e.g. Developing new websites">
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-sm-6">
-                                        <div class="form-group" id="resume-job-title-group">
-                                            <label for="resume-job-title">Job Title</label>
-                                            <input type="text" class="form-control" id="resume-job-title" placeholder="e.g. Web Designer">
+
+                                    <div class="row">
+                                        <div class="col-sm-12">
+                                            <hr class="dashed">
                                         </div>
-                                    </div>
-                                    <div class="col-sm-6">
-                                        <div class="form-group" id="resume-responsibilities-group">
-                                            <label for="resume-responsibilities">Responsibilities (Optional)</label>
-                                            <input type="text" class="form-control" id="resume-responsibilities" placeholder="e.g. Developing new websites">
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-sm-12">
-                                        <hr class="dashed">
                                     </div>
                                 </div>
                                 <div class="row">
@@ -308,7 +255,7 @@
                                     </div>
                                 </div>
                                 <hr>
-                                <!-- Experience Start -->
+                                <!-- Experience End -->
 
                                 <!-- Education Start -->
                                 <div class="row">
@@ -317,37 +264,39 @@
                                         <h2>Education</h2>
                                     </div>
                                 </div>
-                                <div class="row education">
-                                    <div class="col-sm-6">
-                                        <div class="form-group" id="resume-school-group">
-                                            <label for="resume-school">School Name</label>
-                                            <input type="text" class="form-control" id="resume-school" placeholder="School name, city and country">
+                                <div class="edu_box">
+                                    <div class="row education">
+                                        <div class="col-sm-6">
+                                            <div class="form-group" id="resume-school-group">
+                                                <label for="resume-school">School Name</label>
+                                                <input type="text" class="form-control" id="resume-school" name="school" placeholder="School name, city and country">
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <div class="form-group" id="resume-education-dates-group">
+                                                <label for="resume-education-dates">Start/End Date</label>
+                                                <input type="text" class="form-control" id="resume-education-dates" name="education-dates" placeholder="e.g. April 2010 - June 2013">
+                                            </div>
                                         </div>
                                     </div>
-                                    <div class="col-sm-6">
-                                        <div class="form-group" id="resume-education-dates-group">
-                                            <label for="resume-education-dates">Start/End Date</label>
-                                            <input type="text" class="form-control" id="resume-education-dates" placeholder="e.g. April 2010 - June 2013">
+                                    <div class="row">
+                                        <div class="col-sm-6">
+                                            <div class="form-group" id="resume-qualifications-group">
+                                                <label for="resume-qualifications">Qualifications</label>
+                                                <input type="text" class="form-control" id="resume-qualifications" name="qualifications" placeholder="e.g. Master Engineer">
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <div class="form-group" id="resume-notes-group">
+                                                <label for="resume-notes">Notes (Optional)</label>
+                                                <input type="text" class="form-control" id="resume-notes" name="notes" placeholder="Any achievements">
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-sm-6">
-                                        <div class="form-group" id="resume-qualifications-group">
-                                            <label for="resume-qualifications">Qualifications</label>
-                                            <input type="text" class="form-control" id="resume-qualifications" placeholder="e.g. Master Engineer">
+                                    <div class="row">
+                                        <div class="col-sm-12">
+                                            <hr class="dashed">
                                         </div>
-                                    </div>
-                                    <div class="col-sm-6">
-                                        <div class="form-group" id="resume-notes-group">
-                                            <label for="resume-notes">Notes (Optional)</label>
-                                            <input type="text" class="form-control" id="resume-notes" placeholder="Any achievements">
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-sm-12">
-                                        <hr class="dashed">
                                     </div>
                                 </div>
                                 <div class="row">
@@ -359,7 +308,7 @@
                                     </div>
                                 </div>
                                 <hr>
-                                <!-- Education Start -->
+                                <!-- Education End -->
 
                                 <!-- Resume File Start -->
                                 <div class="row">
@@ -372,22 +321,20 @@
                                     <div class="col-sm-12">
                                         <div class="form-group" id="resume-file-group">
                                             <label for="resume-file">Upload Your Resume (Optional)</label>
-                                            <input type="file" id="resume-file">
+                                            <input type="file" id="resume-file" name="resume-file">
                                             <p class="help-block">Optionally upload your resume for employers to view. Max. file size: 64 MB.</p>
                                         </div>
                                     </div>
                                 </div>
-                                <!-- Resume File Start -->
-
+                                <!-- Resume File End -->
+                                <hr class="dashed">
                                 <div class="row text-center">
                                     <div class="col-sm-12">
                                         <p>&nbsp;</p>
                                         <a href="#" class="btn btn-danger"><i class="fa fa-check"></i> Save</a>
                                     </div>
                                 </div>
-
                             </form>
-
                         </div>
                         <div role="tabpanel" class="tab-pane" id="myJob">
                             <hr class="dashed">
@@ -404,7 +351,7 @@
                                 <tbody>
                                     <tr>
                                         <td class="title"><a href="#">Marketing Coordinator - SEO Experience</a></td>
-                                        <td class="pending">Pending Approval</td>
+                                        <td class="going">On Going</td>
                                         <td>October 10, 2015</td>
                                         <td class="action">
                                             <a href="#" class="delete"><i class="fa fa-remove"></i> Delete</a>
@@ -413,15 +360,15 @@
                                     </tr>
                                     <tr>
                                         <td class="title"><a href="#">Web Developer - Front End Web Development, Relational Databases</a></td>
-                                        <td class="approved">Approved</td>
+                                        <td class="going">On Going</td>
                                         <td>September 19, 2015</td>
                                         <td class="action">
                                             <a href="#" class="delete"><i class="fa fa-remove"></i> Delete</a>
                                         </td>
                                     </tr>
                                     <tr>
-                                        <td class="title"><a href="#">Power Systems User Experience Designer</a></td>
-                                        <td class="rejected">Rejected</td>
+                                        <td class="title"><a href="#" class="closed-job">Power Systems User Experience Designer</a></td>
+                                        <td class="closed">Closed</td>
                                         <td>October 01, 2015</td>
                                         <td class="action">
                                             <a href="#" class="delete"><i class="fa fa-remove"></i> Delete</a>
