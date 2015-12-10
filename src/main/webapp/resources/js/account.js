@@ -67,18 +67,6 @@ acnt.getFormObj = function (f) {
     });
     return o;
 };
-/*
-acnt.flapper = function () {
-    var flag = false;
-    return function (action) {
-        flag = !flag;
-        action.call(flag);
-    };
-};
-acnt.edit = acnt.flapper(function (flag) {
-    console.log(flag);
-});
-*/
 $('#login-btn').click(function (e) {
     e.preventDefault();
     var email = $('#login-email').val();

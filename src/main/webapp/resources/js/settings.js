@@ -386,19 +386,6 @@
             })
         });
 
-        $('#select-all').click(function (event) {
-            if (this.checked) {
-                // Iterate each checkbox
-                $(':checkbox').each(function () {
-                    this.checked = true;
-                });
-            } else {
-                $(':checkbox').each(function () {
-                    this.checked = false;
-                });
-            }
-        });
-
         $("#years").Link('lower').to($("#years-field"));
 
         $('#salary').noUiSlider({
@@ -488,7 +475,7 @@
                 typeSpeed: 40
             });
             $(".candidates-type").typed({
-                strings: ["<h1>Candidates</h1><h4>Find your perfect match</h4>"],
+                strings: ["<h1>Find A Candidate</h1><h4>There is no better place to find your perfect match</h4>"],
                 typeSpeed: 40
             });
             $(".jobs-type").typed({
@@ -497,6 +484,10 @@
             });
             $(".testimonials-type").typed({
                 strings: ["<h1>Testimonials</h1><h4>Kind words from happy members</h4>"],
+                typeSpeed: 40
+            });
+            $(".about-type").typed({
+                strings: ["<h1>About Us</h1><h4>Short story of our company</h4>"],
                 typeSpeed: 40
             });
         });
