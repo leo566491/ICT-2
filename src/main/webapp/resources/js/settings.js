@@ -281,6 +281,15 @@
             $('.hidden-job').toggle(0);
         });
 
+        $.scrollUp({
+            animation: 'fade',
+            animationSpeed: 300,
+            scrollSpeed: 600,
+            scrollImg: {
+                active: true
+            }
+        });
+
         // ====================================================================
 
         // Carousels
