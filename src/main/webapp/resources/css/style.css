@@ -1862,13 +1862,17 @@ label {
 
 .nav-pills-form {
     background: #fff;
-    border-radius: 0 0 5px 5px;
+    border-radius: 0 0 7px 7px;
     padding: 30px;
+}
+
+.modal-content {
+    border-radius: 7px 7px 7px 7px;
 }
 
 .modal-content form {
     background: #fff;
-    border-radius: 0 0 5px 5px;
+    border-radius: 0 0 7px 7px;
     padding: 30px;
 }
 
@@ -1885,8 +1889,9 @@ label {
 }
 
 .modal-header {
-    background: #14b1bb;    
+    background: #14b1bb;
     padding: 30px;
+    border-radius: 7px 7px 0 0;
 }
 
 .modal-header h2 {
