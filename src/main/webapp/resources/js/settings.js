@@ -499,6 +499,10 @@
                 strings: ["<h1>About Us</h1><h4>Short story of our company</h4>"],
                 typeSpeed: 40
             });
+            $(".timeOut-type").typed({
+                strings: ["<h1>403 - Access Denied!</h1><br><h4>You are not allowed to view this page yet. Please...</h4>"],
+                typeSpeed: 40
+            });
         });
 
         // ====================================================================
