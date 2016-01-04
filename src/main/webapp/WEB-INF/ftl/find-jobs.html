@@ -1,0 +1,249 @@
+<#assign ptitle = "Find Jobs">
+<#include "header.html">
+
+<!-- ============ TITLE START ============ -->
+
+<section id="title">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12 text-center">
+                <span class="jobs-type"></span>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ============ TITLE END ============ -->
+
+<!-- ============ JOBS START ============ -->
+
+<section id="jobs">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-8">
+                <h2>Available Jobs</h2>
+                <p>Found ${count!} job(s)</p>
+                <div class="jobs">
+
+                    <!-- Job offer 1 -->
+                    <#list res as r>
+                    <a href="/job/${r.id!}" class="featured applied">
+                        <div class="row">
+                            <div class="col-md-1 hidden-sm hidden-xs">
+                                <img src="${r.offer.picAddr!}" alt="" class="img-responsive" />
+                            </div>
+                            <div class="col-lg-5 col-md-5 col-sm-7 col-xs-12 job-title">
+                                <h5>${r.title!}</h5>
+                                <p><strong>${r.offer.name!}</strong></p>
+                            </div>
+                            <div class="col-lg-4 col-md-4 col-sm-5 col-xs-12 job-location">
+                                <p><strong>${r.location!}</strong></p>
+                                <p class="hidden-xs"><b>Industry:</b> ${r.industry!}</p>
+                            </div>
+                            <div class="col-lg-2 col-md-2 hidden-sm hidden-xs job-type text-center">
+                                <p class="job-salary"><strong>$${r.cmin!}</strong></p>
+                                <p class="badge full-time">${r.type!}</p>
+                            </div>
+                        </div>
+                    </a>
+                    </#list>
+
+                    <!-- Job offer 2 
+                    <a href="job-details.html" class="featured">
+                        <div class="row">
+                            <div class="col-md-1 hidden-sm hidden-xs">
+                                <img src="/resources/images/companies/company4.jpg" alt="" class="img-responsive" />
+                            </div>
+                            <div class="col-lg-5 col-md-5 col-sm-7 col-xs-12 job-title">
+                                <h5>Front End Developer</h5>
+                                <p><strong>Ebay Inc.</strong></p>
+                            </div>
+                            <div class="col-lg-4 col-md-4 col-sm-5 col-xs-12 job-location">
+                                <p><strong>Singapore - North</strong></p>
+                                <p class="hidden-xs"><b>Industry:</b> Retail / Merchandise</p>
+                            </div>
+                            <div class="col-lg-2 col-md-2 hidden-sm hidden-xs job-type text-center">
+                                <p class="job-salary"><strong>$142,000</strong></p>
+                                <p class="badge part-time">Part time</p>
+                            </div>
+                        </div>
+                    </a>
+
+                     Job offer 3 
+                    <a href="job-details.html" class="applied">
+                        <div class="row">
+                            <div class="col-md-1 hidden-sm hidden-xs">
+                                <img src="/resources/images/companies/company3.jpg" alt="" class="img-responsive" />
+                            </div>
+                            <div class="col-lg-5 col-md-5 col-sm-7 col-xs-12 job-title">
+                                <h5>Back End Developer</h5>
+                                <p><strong>Google</strong></p>
+                            </div>
+                            <div class="col-lg-4 col-md-4 col-sm-5 col-xs-12 job-location">
+                                <p><strong>Malaysia - JB</strong></p>
+                                <p class="hidden-xs"><b>Industry:</b> Engineering / Technical Consulting</p>
+                            </div>
+                            <div class="col-lg-2 col-md-2 hidden-sm hidden-xs job-type text-center">
+                                <p class="job-salary"><strong>$220,000</strong></p>
+                                <p class="badge internship">Internship</p>
+                            </div>
+                        </div>
+                    </a>
+-->
+                </div>
+
+                <!--<nav>
+                    <a class="btn btn-primary" style="margin-top: 25px;">
+                        <span>Show More Jobs <i class="fa fa-arrow-down"></i></span>
+                    </a>
+                </nav>-->
+
+            </div>
+            <div class="col-sm-4" id="sidebar">
+
+                <!-- Filtering a Job Start -->
+                <div class="sidebar-widget" id="jobsearch">
+                    <h2>Filter Requirements</h2>
+                    <form action="/find/job" method="get" id="sjform">
+                        <div class="row">
+                            <div class="col-xs-12">
+                                <div class="form-group" id="job-search-group">
+                                    <label for="job-search" class="sr-only">Search</label>
+                                    <input type="text" class="form-control" id="job-search" name="s" value="${s!}" placeholder="Type and press enter">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-xs-12">
+                                <hr>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-xs-6">
+                                <h5>Job Type</h5>
+                                <div class="checkbox">
+                                    <label>
+                                        <input id="job-type-all" type="checkbox"> All
+                                    </label>
+                                </div>
+                                <div class="checkbox">
+                                    <label>
+                                        <input class="job-type" name="type" value="Part Time" type="checkbox"> Part Time
+                                    </label>
+                                </div>
+                                <div class="checkbox">
+                                    <label>
+                                        <input class="job-type" name="type" value="Full Time" type="checkbox"> Full Time
+                                    </label>
+                                </div>
+                                <div class="checkbox">
+                                    <label>
+                                        <input class="job-type" name="type" value="Internship" type="checkbox"> Internship
+                                    </label>
+                                </div>
+                                <div class="checkbox">
+                                    <label>
+                                        <input class="job-type" name="type" value="Others" type="checkbox"> Others
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="col-xs-6">
+                                <h5>Industry</h5>
+                                <div class="checkbox">
+                                    <label>
+                                        <input id="job-ind-all" type="checkbox"> All
+                                    </label>
+                                </div>
+                                <div class="checkbox">
+                                    <label>
+                                        <input class="job-ind" name="ind" value="Banking" type="checkbox"> Banking
+                                    </label>
+                                </div>
+                                <div class="checkbox">
+                                    <label>
+                                        <input class="job-ind" name="ind" value="Tourism" type="checkbox"> Tourism
+                                    </label>
+                                </div>
+                                <div class="checkbox">
+                                    <label>
+                                        <input class="job-ind" name="ind" value="Marketing" type="checkbox"> Marketing
+                                    </label>
+                                </div>
+                                <div class="checkbox">
+                                    <label>
+                                        <input class="job-ind" name="ind" value="Other" type="checkbox"> Other
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-xs-12">
+                                <hr>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-xs-6">
+                                <h5>Location</h5>
+                                <div class="checkbox">
+                                    <label>
+                                        <input id="job-loc-all" type="checkbox"> All
+                                    </label>
+                                </div>
+                                <div class="checkbox">
+                                    <label>
+                                        <input class="job-loc" name="loc" value="Singapore" type="checkbox"> Singapore
+                                    </label>
+                                </div>
+                                <div class="checkbox">
+                                    <label>
+                                        <input class="job-loc" name="loc" value="Malaysia" type="checkbox"> Malaysia
+                                    </label>
+                                </div>
+                                <div class="checkbox">
+                                    <label>
+                                        <input class="job-loc" name="loc" value="China" type="checkbox"> China
+                                    </label>
+                                </div>
+                                <div class="checkbox">
+                                    <label>
+                                        <input class="job-loc" name="loc" value="Others" type="checkbox"> Others
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-xs-12">
+                                <hr>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-xs-12">
+                                <h5>Salary</h5>
+                                <div class="form-slider" id="salary"></div>
+                                <p>From <b><span id="salary-field-lower"></span></b> to  <b><span id="salary-field-upper"></span></b></p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-xs-12">
+                                <hr>
+                            </div>
+                        </div>
+                        <input id="cmin" type="hidden" name="cmin">
+                        <input id="cmax" type="hidden" name="cmax">
+                        <div class="row">
+                            <div class="col-xs-12">
+                                <a id="job-search-apply" class="btn btn-primary">Apply Filters</a>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <!-- Filtering a Job End -->
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ============ JOBS END ============ -->
+
+<#include "footer.html">

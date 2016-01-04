@@ -1,0 +1,86 @@
+<#assign ptitle = "Job Details">
+<#include "header.html">
+
+<!-- ============ TITLE START ============ -->
+
+<section id="title">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12 text-center">
+                <h1>${title!}</h1>
+                <h4>
+                    <span><i class="fa fa-map-marker"></i>${location!}</span>
+                    <span><i class="fa fa-clock-o"></i>${type!}</span>
+                    <span><i class="fa fa-dollar"></i>${cmax!}</span>
+                </h4>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ============ TITLE END ============ -->
+
+<!-- ============ CONTENT START ============ -->
+
+<section id="jobs">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-8">
+                <article>
+                    <h2>Job Details</h2>
+                    <h3>Job Responsibilities</h3> 
+                    <p>${duty!}</p>
+                    <h3>Job Requirements</h3>
+                    <p>${require!}</p>
+                    <h3>Other Information</h3>
+                    <p>${info!}</p>
+                    <h3>How to apply</h3>
+                    <p>${apply!}</p>
+                    <p>
+                        ${applyerr!}
+                    </p>
+                    <p>
+                        <a href="/job/apply?jobId=${id!}" class="btn btn-primary btn-lg">Apply Here</a>
+                    </p>
+                </article>
+            </div>
+            <div class="col-sm-4" id="sidebar">
+                <div class="sidebar-widget" id="company">
+                    <h2>About this company</h2>
+                    <p><img src="${compic!}" alt="" class="img-responsive-logo"></p>
+                    <p>${comInfo!}</p>
+                    <p><a href="/employer/${comid!}" class="btn btn-primary" target="_blank">Read more</a></p>
+                </div>
+                <hr>
+                <div class="sidebar-widget" id="company-jobs">
+                    <h2>Recruitment Company Snapshot</h2>
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <span class="snapshot"><i class="fa fa-briefcase"></i> Registration No. </span>
+                            <br>${comno!}
+                        </div>
+                        <div class="col-sm-6">
+                            <span class="snapshot"><i class="fa fa-industry"></i> Industry </span>
+                            <br>${comInd!}
+                        </div>
+                    </div>
+                    <br>
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <span class="snapshot"><i class="fa fa-users"></i> Company Size </span>
+                            <br>${comsize!}
+                        </div>
+                        <div class="col-sm-6">
+                            <span class="snapshot"><i class="fa fa-bookmark"></i> Website </span>
+                            <br><a href="${comweb!}" target="_blank">${comweb!}</a>
+                        </div>
+                    </div>                        
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ============ CONTENT END ============ -->
+
+<#include "footer.html">

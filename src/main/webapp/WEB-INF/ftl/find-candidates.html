@@ -1,0 +1,243 @@
+<#assign ptitle = "Find Candidates">
+<#include "header.html">
+
+<!-- ============ TITLE START ============ -->
+
+<section id="title">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12 text-center">
+                <span class="candidates-type"></span>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ============ TITLE END ============ -->
+
+<!-- ============ JOBS START ============ -->
+
+<section id="jobs">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-8">
+                <h2>Candidates</h2>
+                <p>Found ${count!} candidates matches </p>
+                <div class="jobs">
+
+                    <!-- Candidate 1 -->
+                    <#list res as r>
+                    <a href="/resume/${r.id}">
+                        <div class="row">
+                            <div class="col-xs-3 col-sm-2 col-lg-1">
+                                <img src="${r.picAddr!}" alt="" class="img-circle img-responsive" />
+                            </div>
+                            <div class="col-xs-9 col-sm-4 col-md-5 col-lg-4 candidate-name">
+                                <h5>${r.name!}</h5>
+                                <p><strong>${r.title!}</strong></p>
+                            </div>
+                            <div class="hidden-xs col-sm-6 col-md-5 col-lg-4 candidate-location">
+                                <p><strong>${r.location!}</strong></p>
+                                <p class="hidden-xs"><b>Industry:</b>${r.industry}</p>
+                            </div>
+                            <div class="hidden-xs hidden-sm hidden-md col-lg-3">
+                                <p class="candidate-date">${r.day!}</p>
+                                <p class="candidate-tags">
+
+                                </p>
+                            </div>
+                        </div>
+                    </a>
+                    </#list>
+
+                    <!-- 
+                    <a href="resume.html">
+                        <div class="row">
+                            <div class="col-xs-3 col-sm-2 col-lg-1">
+                                <img src="/resources/images/candidates/can2.jpg" alt="" class="img-circle img-responsive" />
+                            </div>
+                            <div class="col-xs-9 col-sm-4 col-md-5 col-lg-4 candidate-name">
+                                <h5>Matt Berry</h5>
+                                <p><strong>Senior Web Developer</strong></p>
+                            </div>
+                            <div class="hidden-xs col-sm-6 col-md-5 col-lg-4 candidate-location">
+                                <p><strong>Singapore - Central</strong></p>
+                                <p class="hidden-xs"><b>Industry:</b> Banking</p>
+                            </div>
+                            <div class="hidden-xs hidden-sm hidden-md col-lg-3">
+                                <p class="candidate-date">Updated 2 weeks ago</p>
+                                <p class="candidate-tags">
+                                    <span class="badge">IT</span>
+                                    <span class="badge">Web development</span>
+                                </p>
+                            </div>
+                        </div>
+                    </a>
+
+                     Candidate 3 
+                    <a href="resume.html">
+                        <div class="row">
+                            <div class="col-xs-3 col-sm-2 col-lg-1">
+                                <img src="/resources/images/candidates/can3.jpg" alt="" class="img-circle img-responsive" />
+                            </div>
+                            <div class="col-xs-9 col-sm-4 col-md-5 col-lg-4 candidate-name">
+                                <h5>Spencer Conner</h5>
+                                <p><strong>Front End Developer</strong></p>
+                            </div>
+                            <div class="hidden-xs col-sm-6 col-md-5 col-lg-4 candidate-location">
+                                <p><strong>Singapore - North</strong></p>
+                                <p class="hidden-xs"><b>Industry:</b> Banking</p>
+                            </div>
+                            <div class="hidden-xs hidden-sm hidden-md col-lg-3">
+                                <p class="candidate-date">Updated 1 week ago</p>
+                                <p class="candidate-tags">
+                                    <span class="badge">IT</span>
+                                    <span class="badge">Web development</span>
+                                </p>
+                            </div>
+                        </div>
+                    </a>-->
+
+                </div>
+
+                <!--<nav>
+                    <a class="btn btn-primary" style="margin-top: 25px;">
+                        <span>Show More Jobs <i class="fa fa-arrow-down"></i></span>
+                    </a>
+                </nav>-->
+
+            </div>
+            <div class="col-sm-4" id="sidebar">
+
+                <!-- Filtering a Job Start -->
+                <div class="sidebar-widget" id="jobsearch">
+                    <h2>Filter Requirements</h2>
+                    <form action="/find/candidates" method="get" id="scandform">
+                        <div class="row">
+                            <div class="col-xs-12">
+                                <div class="form-group" id="job-search-group">
+                                    <label for="job-search" class="sr-only">Search</label>
+                                    <input type="text" class="form-control" id="cand-search" name="s" value="${s!}" placeholder="Type and press enter">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-xs-12">
+                                <hr>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-xs-6">
+                                <h5>Posted Since</h5>
+                                <div class="radio">
+                                    <label>
+                                        <input  type="radio" name="date" value="-1"> All Time
+                                    </label>
+                                </div>
+                                <div class="radio">
+                                    <label>
+                                        <input type="radio" name="date" value="7"> in 1 week
+                                    </label>
+                                </div>
+                                <div class="radio">
+                                    <label>
+                                        <input type="radio" name="date" value="14"> in 2 week
+                                    </label>
+                                </div>
+                                <div class="radio">
+                                    <label>
+                                        <input type="radio" name="date" value="35"> in 5 week
+                                    </label>
+                                </div>
+                                <div class="radio">
+                                    <label>
+                                        <input type="radio" name="date" value="70"> in 10 week
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="col-xs-6">
+                                <h5>Industry</h5>
+                                <div class="checkbox">
+                                    <label>
+                                        <input id="cand-ind-all" type="checkbox"> All
+                                    </label>
+                                </div>
+                                <div class="checkbox">
+                                    <label>
+                                        <input name="ind" class="cand-ind" type="checkbox" value="Banking"> Banking
+                                    </label>
+                                </div>
+                                <div class="checkbox">
+                                    <label>
+                                        <input name="ind" class="cand-ind" type="checkbox" value="Tourism"> Tourism
+                                    </label>
+                                </div>
+                                <div class="checkbox">
+                                    <label>
+                                        <input name="ind" class="cand-ind" type="checkbox" value="Marketing"> Marketing
+                                    </label>
+                                </div>
+                                <div class="checkbox">
+                                    <label>
+                                        <input name="ind" class="cand-ind" type="checkbox" value="Others"> Others
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-xs-12">
+                                <hr>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-xs-6">
+                                <h5>Location</h5>
+                                <div class="checkbox">
+                                    <label>
+                                        <input id="cand-loc-all" type="checkbox"> All
+                                    </label>
+                                </div>
+                                <div class="checkbox">
+                                    <label>
+                                        <input name="loc" class="cand-loc" type="checkbox" value="Singapore"> Singapore
+                                    </label>
+                                </div>
+                                <div class="checkbox">
+                                    <label>
+                                        <input name="loc" class="cand-loc" type="checkbox" value="Malaysia"> Malaysia
+                                    </label>
+                                </div>
+                                <div class="checkbox">
+                                    <label>
+                                        <input name="loc" class="cand-loc" type="checkbox" value="China"> China
+                                    </label>
+                                </div>
+                                <div class="checkbox">
+                                    <label>
+                                        <input name="loc" class="cand-loc" type="checkbox" value="Others"> Others
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <br>
+                        <div class="row">
+                            <div class="col-xs-12">
+                                <hr>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-xs-12">
+                                <a id="cand-search-apply" class="btn btn-primary">Apply Filters</a>
+                            </div>
+                        </div>                        
+                    </form>
+                </div>
+                <!-- Filtering a Job End -->
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ============ JOBS END ============ -->
+
+<#include "footer.html">

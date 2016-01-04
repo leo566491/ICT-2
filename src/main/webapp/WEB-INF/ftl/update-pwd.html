@@ -1,0 +1,28 @@
+<!-- ============ POPUP UPDATE PASSWORD START ============ -->
+
+<div id="update-pwd" class="modal fade" role="dialog" data-keyboard="false" data-backdrop="static">
+    <div class="modal-dialog">        
+        <div class="modal-content">
+            <div class="modal-header">
+                <a class="close" data-dismiss="modal"><i class="fa fa-remove fa-lg"></i></a>
+                <h2>Update Password</h2>
+            </div>
+            <div class="modal-body">
+                <form action="/change/passwd" method="post">
+                    <span id='update-pwd-warning'></span>
+                    <div class="form-group">
+                        <label for="update-pwd">New Password</label>
+                        <input name="passwd" type="password" class="form-control" id="update-pwd">
+                    </div>
+                    <div class="form-group">
+                        <label for="confirm-update-pwd">Confirmed New Password</label>
+                        <input type="password" class="form-control" id="confirm-update-pwd">
+                    </div>
+                    <button id="update-pwd-btn" type='submit' class="btn btn-danger">Update</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- ============ POPUP UPDATE PASSWORD END ============ -->

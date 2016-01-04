@@ -1,0 +1,446 @@
+<#assign ptitle = "Control Panel">
+<#include "header.html">
+
+<!-- ============ CONTROL PANEL START ============ -->
+
+<section id="resume">
+    <div class="container">
+        <div class="row text-center">
+            <div class="col-sm-12">
+                <span class="acc-per-type"></span>
+            </div>
+        </div>
+        <div class="row">
+            <div class="jumbotron">
+                <div role="tabpanel">
+
+                    <!-- Nav pills -->
+                    <ul class="nav nav-pills nav-justified">
+                        <li role="presentation" class="active"><a href="#myInfo" aria-controls="myInfo" role="tab" data-toggle="tab">MY PERSONAL INFORMATION</a></li>
+                        <li role="presentation"><a href="#myResume" aria-controls="myResume" role="tab" data-toggle="tab">MY RESUME</a></li>
+                        <li role="presentation"><a href="#myJob" aria-controls="myJob" role="tab" data-toggle="tab">MY JOBS</a></li>
+                    </ul>
+
+                    <!-- Tab panes -->
+                    <div class="tab-content">
+                        <div role="tabpanel" class="tab-pane active" id="myInfo">
+                            <#include "account.html">
+                        </div>
+                        <div role="tabpanel" class="tab-pane" id="myResume">
+                            <form id="resume-form" class="editor-form" action="/employee/update" enctype="multipart/form-data" method="post">
+                                <!-- Resume Details Start -->
+                                <input type="hidden" name="resume-pic-prv" value="${pic!}">
+                                <input type="hidden" name="resume-doc-prv" value="${doc!}">
+                                <input type="hidden" name="resume-dob-prv" value="${dob!}">
+
+                                <div class="row">
+                                    <div class="col-sm-6">
+                                        <h2>Resume details</h2>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm-6">
+                                        <div class="form-group" id="resume-photo-group">
+                                            <label for="resume-photo">Photo</label>
+                                            <input type="file" name="photo" id="resume-photo">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm-6">
+                                        <div class="form-group" id="resume-title-group">
+                                            <label for="resume-title">Title</label>
+                                            <input type="text" class="form-control" value="${title!}" name="title" id="resume-title" placeholder="e.g. Web Designer">
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <label for="resume-dob">Date Of Birth</label>
+                                        <div class="form-group" id="resume-dob">
+                                            <div class="row">
+                                                <div class="col-sm-3">
+                                                    <select id="dobday" name="dobday" class="form-control"></select>
+                                                </div>
+                                                <div class="col-sm-3">
+                                                    <select id="dobmonth" name="dobmonth" class="form-control"></select>
+                                                </div>
+                                                <div class="col-sm-3">
+                                                    <select id="dobyear" name="dobyear" class="form-control"></select>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm-6">
+                                        <div class="form-group" id="resume-contact-number">
+                                            <label for="resume-contact-number">Contact Number</label>
+                                            <input type="number" class="form-control" id="resume-contact-number" name="contact_number" value="${phone!}" placeholder="e.g. 87105485">
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <div class="form-group" id="resume-industry">
+                                            <label for="resume-industry">Job Industry</label>
+                                            <select class="form-control" id="resume-industry" name="industry">
+                                                <option value="">Choose an industry</option>
+                                                <option value="Internet Services">Internet Services</option>
+                                                <option value="Banking">Banking</option>
+                                                <option value="Financial">Financial</option>
+                                                <option value="Marketing">Marketing</option>
+                                                <option value="Management">Management</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm-6">
+                                        <div class="form-group" id="resume-location">
+                                            <label for="resume-location">Location</label>
+                                            <input type="text" class="form-control" id="resume-location" name="location" value="${location!}" placeholder="e.g. Singapore">
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <div class="form-group" id="resume-skills">
+                                            <label for="resume-skills">Key Skills</label>
+                                            <input type="text" class="form-control" id="tokenfield" name="key_skills"/>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm-12">
+                                        <hr class="dashed">
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm-12">
+                                        <div class="form-group wysiwyg" id="wysiwyg-resume-about-me">
+                                            <label>About Me</label>
+
+                                            <div class="btn-toolbar" data-role="editor1-toolbar" data-target="#resume-about-me">
+                                                <div class="btn-group">
+                                                    <a class="btn" data-edit="bold" title="Bold (Ctrl/Cmd+B)" data-original-title="Bold (Ctrl/Cmd+B)"><i class="fa fa-bold"></i></a>
+                                                    <a class="btn" data-edit="italic" title="Italic (Ctrl/Cmd+I)" data-original-title="Italic (Ctrl/Cmd+I)"><i class="fa fa-italic"></i></a>
+                                                    <a class="btn" data-edit="strikethrough" title="Strikethrough"><i class="fa fa-strikethrough"></i></a>
+                                                    <a class="btn" data-edit="underline" title="Underline (Ctrl/Cmd+U)"><i class="fa fa-underline"></i></a>
+                                                </div>
+                                                <div class="btn-group">
+                                                    <a class="btn" data-edit="insertunorderedlist" title="Bullet list" data-original-title="Bullet list"><i class="fa fa-list-ul"></i></a>
+                                                    <a class="btn" data-edit="insertorderedlist" title="Number list" data-original-title="Number list"><i class="fa fa-list-ol"></i></a>
+                                                </div>
+                                                <div class="btn-group">
+                                                    <a class="btn" data-edit="justifyleft" title="Align Left (Ctrl/Cmd+L)" data-original-title="Align Left (Ctrl/Cmd+L)"><i class="fa fa-align-left"></i></a>
+                                                    <a class="btn" data-edit="justifycenter" title="Center (Ctrl/Cmd+E)" data-original-title="Center (Ctrl/Cmd+E)"><i class="fa fa-align-center"></i></a>
+                                                    <a class="btn" data-edit="justifyright" title="Align Right (Ctrl/Cmd+R)" data-original-title="Align Right (Ctrl/Cmd+R)"><i class="fa fa-align-right"></i></a>
+                                                </div>
+                                                <div class="btn-group">
+                                                    <a class="btn dropdown-toggle" data-toggle="dropdown" title="Create Hyperlink" data-original-title="Hyperlink"><i class="fa fa-link"></i></a>
+                                                    <div class="dropdown-menu input-append">
+                                                        <input class="form-control pull-left" placeholder="http://" type="text" data-edit="createLink">
+                                                        <button class="btn btn-primary" type="button">Add</button>
+                                                    </div>
+                                                    <a class="btn" data-edit="unlink" title="Remove Hyperlink" data-original-title="Remove Hyperlink"><i class="fa fa-unlink"></i></a>
+                                                </div>
+                                                <div class="btn-group">
+                                                    <a class="btn" data-edit="undo" title="Undo (Ctrl/Cmd+Z)"><i class="fa fa-undo"></i></a>
+                                                    <a class="btn" data-edit="redo" title="Redo (Ctrl/Cmd+Y)"><i class="fa fa-repeat"></i></a>
+                                                </div>
+                                            </div>
+
+                                            <div class="editor1" id="resume-about-me" contenteditable="true">${about!}</div>
+                                            <input id="about_me" type="hidden" name="about_me" value="my name">
+                                        </div>
+                                        <div class="form-group wysiwyg" id="wysiwyg-resume-my-skills">
+                                            <label>My Skills</label>
+
+                                            <div class="btn-toolbar" data-role="editor2-toolbar" data-target="#resume-my-skills">
+                                                <div class="btn-group">
+                                                    <a class="btn" data-edit="bold" title="Bold (Ctrl/Cmd+B)" data-original-title="Bold (Ctrl/Cmd+B)"><i class="fa fa-bold"></i></a>
+                                                    <a class="btn" data-edit="italic" title="Italic (Ctrl/Cmd+I)" data-original-title="Italic (Ctrl/Cmd+I)"><i class="fa fa-italic"></i></a>
+                                                    <a class="btn" data-edit="strikethrough" title="Strikethrough"><i class="fa fa-strikethrough"></i></a>
+                                                    <a class="btn" data-edit="underline" title="Underline (Ctrl/Cmd+U)"><i class="fa fa-underline"></i></a>
+                                                </div>
+                                                <div class="btn-group">
+                                                    <a class="btn" data-edit="insertunorderedlist" title="Bullet list" data-original-title="Bullet list"><i class="fa fa-list-ul"></i></a>
+                                                    <a class="btn" data-edit="insertorderedlist" title="Number list" data-original-title="Number list"><i class="fa fa-list-ol"></i></a>
+                                                </div>
+                                                <div class="btn-group">
+                                                    <a class="btn" data-edit="justifyleft" title="Align Left (Ctrl/Cmd+L)" data-original-title="Align Left (Ctrl/Cmd+L)"><i class="fa fa-align-left"></i></a>
+                                                    <a class="btn" data-edit="justifycenter" title="Center (Ctrl/Cmd+E)" data-original-title="Center (Ctrl/Cmd+E)"><i class="fa fa-align-center"></i></a>
+                                                    <a class="btn" data-edit="justifyright" title="Align Right (Ctrl/Cmd+R)" data-original-title="Align Right (Ctrl/Cmd+R)"><i class="fa fa-align-right"></i></a>
+                                                </div>
+                                                <div class="btn-group">
+                                                    <a class="btn dropdown-toggle" data-toggle="dropdown" title="Create Hyperlink" data-original-title="Hyperlink"><i class="fa fa-link"></i></a>
+                                                    <div class="dropdown-menu input-append">
+                                                        <input class="form-control pull-left" placeholder="http://" type="text" data-edit="createLink">
+                                                        <button class="btn btn-primary" type="button">Add</button>
+                                                    </div>
+                                                    <a class="btn" data-edit="unlink" title="Remove Hyperlink" data-original-title="Remove Hyperlink"><i class="fa fa-unlink"></i></a>
+                                                </div>
+                                                <div class="btn-group">
+                                                    <a class="btn" data-edit="undo" title="Undo (Ctrl/Cmd+Z)"><i class="fa fa-undo"></i></a>
+                                                    <a class="btn" data-edit="redo" title="Redo (Ctrl/Cmd+Y)"><i class="fa fa-repeat"></i></a>
+                                                </div>
+                                            </div>
+
+                                            <div class="editor2" id="resume-my-skills" contenteditable="true">${skill!}</div>
+                                            <input id="my_skill" type="hidden" name="my_skill" value="">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm-12">
+                                        <hr class="dashed">
+                                    </div>
+                                </div>
+                                <!-- Resume Details End -->
+
+                                <!-- Experience Start -->
+                                <div class="row">
+                                    <div class="col-sm-12">
+                                        <p>&nbsp;</p>
+                                        <h2>Experience</h2>
+                                    </div>
+                                </div>
+                                <#list experience as exp>
+                                <div class="exp_box">
+                                    <div class="row experience">
+                                        <div class="col-sm-6">
+                                            <div class="form-group" id="resume-employer-group">
+                                                <label for="resume-employer">Employer</label>
+                                                <input type="text" class="form-control" id="resume-employer" name="employer" value="${exp.respon!}" placeholder="Company name">
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <div class="form-group" id="resume-experience-dates-group">
+                                                <label for="resume-experience-dates">Start/End Date</label>
+                                                <input type="text" class="form-control" id="resume-experience-dates" name="experience-dates" value="${exp.period!}" placeholder="e.g. April 2010 - June 2013">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-sm-6">
+                                            <div class="form-group" id="resume-job-title-group">
+                                                <label for="resume-job-title">Job Title</label>
+                                                <input type="text" class="form-control" id="resume-job-title" name="job-title" value="${exp.title!}" placeholder="e.g. Web Designer">
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <div class="form-group" id="resume-responsibilities-group">
+                                                <label for="resume-responsibilities">Responsibilities (Optional)</label>
+                                                <input type="text" class="form-control" id="resume-responsibilities" name="responsibilities" placeholder="e.g. Developing new websites">
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-sm-12">
+                                            <hr class="dashed">
+                                        </div>
+                                    </div>
+                                </div>
+                                </#list>
+                                <div class="exp_box">
+                                    <div class="row experience">
+                                        <div class="col-sm-6">
+                                            <div class="form-group" id="resume-employer-group">
+                                                <label for="resume-employer">Employer</label>
+                                                <input type="text" class="form-control" id="resume-employer" name="employer" value="" placeholder="Company name">
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <div class="form-group" id="resume-experience-dates-group">
+                                                <label for="resume-experience-dates">Start/End Date</label>
+                                                <input type="text" class="form-control" id="resume-experience-dates" name="experience-dates" value="" placeholder="e.g. April 2010 - June 2013">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-sm-6">
+                                            <div class="form-group" id="resume-job-title-group">
+                                                <label for="resume-job-title">Job Title</label>
+                                                <input type="text" class="form-control" id="resume-job-title" name="job-title" value="" placeholder="e.g. Web Designer">
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <div class="form-group" id="resume-responsibilities-group">
+                                                <label for="resume-responsibilities">Responsibilities (Optional)</label>
+                                                <input type="text" class="form-control" id="resume-responsibilities" name="responsibilities" placeholder="e.g. Developing new websites">
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-sm-12">
+                                            <hr class="dashed">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm-6">
+                                        <p><a id="add-experience">+ Add Experience</a></p>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <p><a id="delete-experience" class="pull-right">- Delete Experience</a></p>
+                                    </div>
+                                </div>
+                                <hr>
+                                <!-- Experience End -->
+
+                                <!-- Education Start -->
+                                <div class="row">
+                                    <div class="col-sm-12">
+                                        <p>&nbsp;</p>
+                                        <h2>Education</h2>
+                                    </div>
+                                </div>
+                                <#list education as edu> 
+                                <div class="edu_box">
+                                    <div class="row education">
+                                        <div class="col-sm-6">
+                                            <div class="form-group" id="resume-school-group">
+                                                <label for="resume-school">School Name</label>
+                                                <input type="text" class="form-control" id="resume-school" name="school" placeholder="School name, city and country">
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <div class="form-group" id="resume-education-dates-group">
+                                                <label for="resume-education-dates">Start/End Date</label>
+                                                <input type="text" class="form-control" id="resume-education-dates" name="education-dates" placeholder="e.g. April 2010 - June 2013">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-sm-6">
+                                            <div class="form-group" id="resume-qualifications-group">
+                                                <label for="resume-qualifications">Qualifications</label>
+                                                <input type="text" class="form-control" id="resume-qualifications" name="qualifications" placeholder="e.g. Master Engineer">
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <div class="form-group" id="resume-notes-group">
+                                                <label for="resume-notes">Notes (Optional)</label>
+                                                <input type="text" class="form-control" id="resume-notes" name="notes" placeholder="Any achievements">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-sm-12">
+                                            <hr class="dashed">
+                                        </div>
+                                    </div>
+                                </div>
+                                </#list>
+                                <div class="edu_box">
+                                    <div class="row education">
+                                        <div class="col-sm-6">
+                                            <div class="form-group" id="resume-school-group">
+                                                <label for="resume-school">School Name</label>
+                                                <input type="text" class="form-control" id="resume-school" name="school" placeholder="School name, city and country">
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <div class="form-group" id="resume-education-dates-group">
+                                                <label for="resume-education-dates">Start/End Date</label>
+                                                <input type="text" class="form-control" id="resume-education-dates" name="education-dates" placeholder="e.g. April 2010 - June 2013">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-sm-6">
+                                            <div class="form-group" id="resume-qualifications-group">
+                                                <label for="resume-qualifications">Qualifications</label>
+                                                <input type="text" class="form-control" id="resume-qualifications" name="qualifications" placeholder="e.g. Master Engineer">
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <div class="form-group" id="resume-notes-group">
+                                                <label for="resume-notes">Notes (Optional)</label>
+                                                <input type="text" class="form-control" id="resume-notes" name="notes" placeholder="Any achievements">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-sm-12">
+                                            <hr class="dashed">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm-6">
+                                        <p><a id="add-education">+ Add Education</a></p>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <p><a id="delete-education" class="pull-right">- Delete Education</a></p>
+                                    </div>
+                                </div>
+                                <hr>
+                                <!-- Education End -->
+
+                                <!-- Resume File Start -->
+                                <div class="row">
+                                    <div class="col-sm-12">
+                                        <p>&nbsp;</p>
+                                        <h2>Resume File</h2>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm-12">
+                                        <div class="form-group" id="resume-file-group">
+                                            <label for="resume-file">Upload Your Resume (Optional)</label>
+                                            <input type="file" id="resume-file" name="resume-file">
+                                            <p class="help-block">Optionally upload your resume for employers to view. Max. file size: 64 MB.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Resume File End -->
+                                <hr class="dashed">
+                                <div class="row text-center">
+                                    <div class="col-sm-12">
+                                        <p>&nbsp;</p>
+                                        <button class="btn btn-primary btn-lg">Submit <i class="fa fa-arrow-up"></i></button>
+                                    </div>
+                                </div>
+
+                            </form>
+                        </div>
+                        <div role="tabpanel" class="tab-pane" id="myJob">
+                            <hr class="dashed">
+                            <h2>Manage My Jobs</h2>
+                            <table class="tablesaw" data-tablesaw-sortable data-tablesaw-sortable-switch>
+                                <thead>
+                                    <tr>
+                                        <th data-tablesaw-sortable-col data-tablesaw-sortable-default-col data-tablesaw-priority="persist"><i class="fa fa-file-text"></i> Job Titles</th>
+                                        <th data-tablesaw-sortable-col data-tablesaw-priority="1"><i class="fa fa-refresh fa-spin"></i> Job's Status</th>
+                                        <th data-tablesaw-sortable-col data-tablesaw-priority="2"><i class="fa fa-calendar"></i> Date Applied</th>
+                                        <th data-tablesaw-priority="3"><i class="fa fa-sliders"></i> Action</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <#list jobs as j>
+                                    <tr id="job${j.id}">
+                                        <td class="title">                       
+                                            <a href="/job/${j.id}" <#if j.state == 1> class="closed-job"</#if>>${j.title!}</a>    
+                                        </td>
+                                        <#if j.state == 0>
+                                        <td class="going">On Going</td>
+                                        <#else>
+                                        <td class="closed">Closed</td>
+                                        </#if>
+                                        <td>${j.time!}</td>
+                                        <td class="action">
+                                            <a href="#" onclick="acnt.emDelJob(${j.id})"><i class="fa fa-remove"></i> Delete</a>
+                                        </td>
+                                    </tr>
+                                    </#list>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ============ CONTROL PANEL END ============ -->
+
+<#include "footer.html">

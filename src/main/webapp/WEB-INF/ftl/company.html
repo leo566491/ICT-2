@@ -1,0 +1,188 @@
+<#assign ptitle = "Company Details">
+<#include "header.html">
+
+<!-- ============ TITLE START ============ -->
+
+<section id="title">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12 text-center">
+                <img src="${pic!}" class="img-responsive-logo" alt="" />
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ============ TITLE END ============ -->
+
+<!-- ============ CONTENT START ============ -->
+
+<section id="jobs">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-8">
+                <article>
+                    <h2>About company</h2>
+                    ${info!}
+                    <hr>
+                    <h2>Location</h2>
+
+
+                    <!-- Google Map Script -->
+                    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?sensor=false"></script>
+                    <script type="text/javascript">
+                        function initialize() {
+                            //-----------------------------------------------------------------------
+                            // Create an array of styles.
+
+                            var styles = [
+                                {
+                                    "stylers": [
+                                        {
+                                            "saturation": -100
+                                        },
+                                        {
+                                            "gamma": 1
+                                        }
+                                    ]
+                                }, {
+                                    "featureType": "water",
+                                    "stylers": [
+                                        {
+                                            "lightness": -12
+                                        }
+                                    ]
+                                }
+                            ];
+
+                            //-----------------------------------------------------------------------
+                            // Create a new StyledMapType object, passing it the array of styles,
+                            // as well as the name to be displayed on the map type control.
+
+                            var styledMap = new google.maps.StyledMapType(styles, {
+                                name: "Styled Map"
+                            });
+
+                            //-----------------------------------------------------------------------
+                            // Set up map pin position
+
+                            var latlng = new google.maps.LatLng(${lati!}, ${longi!});
+
+                            //-----------------------------------------------------------------------
+                            // Set up map options
+
+                            var myOptions = {
+                                scrollwheel: false,
+                                zoom: 18,
+                                center: latlng,
+                                mapTypeControlOptions: {
+                                    mapTypeIds: [google.maps.MapTypeId.ROADMAP, 'map_style']
+                                }
+                            };
+
+                            //-----------------------------------------------------------------------
+                            // Set up map ID's
+
+                            var map = new google.maps.Map(document.getElementById("map-canvas"), myOptions);
+
+                            //-----------------------------------------------------------------------
+                            // Associate the styled map with the MapTypeId and set it to display.
+
+                            map.mapTypes.set('map_style', styledMap);
+                            map.setMapTypeId('map_style');
+
+                            //-----------------------------------------------------------------------
+                            // Setup up map pin image
+
+                            var image = {
+                                // Path to your map pin image
+                                url: '/resources/images/map-marker.png',
+                                // This marker is 40 pixels wide by 42 pixels tall.
+                                size: new google.maps.Size(40, 42),
+                                // The origin for this image is 0,0.
+                                origin: new google.maps.Point(0, 0),
+                                // The anchor for this image is the base of the pin at 20,42.
+                                anchor: new google.maps.Point(20, 42)
+                            };
+
+                            //-----------------------------------------------------------------------
+                            // Add marker
+
+                            var myMarker = new google.maps.Marker({
+                                position: latlng,
+                                map: map,
+                                icon: image,
+                                clickable: true,
+                                // Put the n
+                                title: "${name!}"
+                            });
+
+                            myMarker.info = new google.maps.InfoWindow({
+                                content: "${address!}"
+                            });
+
+                            google.maps.event.addListener(myMarker, 'click', function () {
+                                myMarker.info.open(map, myMarker);
+                            });
+                        }
+
+                        google.maps.event.addDomListener(window, 'load', initialize);
+                    </script>
+
+                    <div id="map-canvas"></div>
+
+                    <hr>
+
+                </article>
+            </div>
+            <div class="col-sm-4" id="sidebar">
+                <div class="sidebar-widget" id="share">
+                    <h2>Share it</h2>
+                    <ul>
+                        <li><a href="https://www.facebook.com/sharer/sharer.php?u=laborbond.com%2Fcompany%2F${id!}"><i class="fa fa-facebook"></i></a></li>
+                        <li><a href="https://twitter.com/home?status=laborbond.com%2Fcompany%2F${id!}"><i class="fa fa-twitter"></i></a></li>
+                        <li><a href="https://plus.google.com/share?url=laborbond.com%2Fcompany%2F${id!}"><i class="fa fa-google-plus"></i></a></li>
+                    </ul>
+                </div>
+                <hr>
+                <div class="sidebar-widget" id="widget-contact">
+                    <h2>Contact</h2>
+                    <ul>
+                        <li><i class="fa fa-building"></i>${name!}</li>
+                        <li><i class="fa fa-map-marker"></i>${address!}</li>
+                        <li><i class="fa fa-phone"></i>${tel!}</li>
+                        <li><i class="fa fa-envelope"></i><a href="mailto:${cemail!}">Send an email</a></li>
+                    </ul>
+                    <br>
+                    <hr>
+                    <h2>Recruitment Company Snapshot</h2>
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <span class="snapshot"><i class="fa fa-briefcase"></i> Registration No. </span>
+                            <br>${no!}
+                        </div>
+                        <div class="col-sm-6">
+                            <span class="snapshot"><i class="fa fa-industry"></i> Industry </span>
+                            <br>${industry!}
+                        </div>
+                    </div>
+                    <br>
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <span class="snapshot"><i class="fa fa-users"></i> Company Size </span>
+                            <br>${size!}
+                        </div>
+                        <div class="col-sm-6">
+                            <span class="snapshot"><i class="fa fa-bookmark"></i> Website </span>
+                            <br><a href="${web!}" target="_blank">${web!}</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ============ CONTENT END ============ -->
+
+<#include "footer.html">
