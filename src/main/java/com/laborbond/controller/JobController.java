@@ -9,6 +9,7 @@ import com.laborbond.employee.EmInfo;
 import com.laborbond.job.Job;
 import com.laborbond.job.JobSearch;
 import com.laborbond.job.JobService;
+import java.util.Arrays;
 import java.util.List;
 import javax.servlet.http.HttpSession;
 import org.json.JSONException;
@@ -33,6 +34,17 @@ public class JobController {
     @RequestMapping(value = "/job/post", method = RequestMethod.GET)
     public String postJob(ModelMap model) {
         model.addAttribute("action","/job/add");
+        model.addAttribute("id", 0);
+        model.addAttribute("location", "");
+        model.addAttribute("title", "");
+        model.addAttribute("info", "");
+        model.addAttribute("require", "");
+        model.addAttribute("duty", "");
+        model.addAttribute("apply", "");
+        model.addAttribute("industry", "");
+        model.addAttribute("cmin", 0);
+        model.addAttribute("cmax", 0);
+        model.addAttribute("type", "");
         return "post-a-job";
     }
     
@@ -49,7 +61,7 @@ public class JobController {
         Integer comId=(Integer) session.getAttribute("id");
         if (accountType != null && "company".equals(accountType)) {
             Job job = new Job();
-            job.id = comId;
+            job.offer.setId(comId);
             job.title = title;
             job.info = otherInfo;
             job.location = location;
@@ -61,7 +73,7 @@ public class JobController {
             job.cmax = salary;
             job.type = type;
             jobService.postJob(job);
-            return "redirect:/dash#";
+            return "redirect:/dash#job";
         } else {
             return "timeout";
         }
@@ -80,11 +92,12 @@ public class JobController {
             @RequestParam(value = "apply", required = false) String apply,
             @RequestParam(value = "job-id") Integer jobId){
         String accountType = (String) session.getAttribute("type");
-        Integer comId=(Integer) session.getAttribute("id");
         if (accountType != null && "company".equals(accountType)) {
+            
+            int comId=(Integer) session.getAttribute("id");
             Job job = new Job();
             job.id = jobId;
-            job.offer.setId((int) comId);
+            job.offer.setId(comId);
             job.title = title;
             job.info = otherInfo;
             job.location = location;
@@ -96,7 +109,7 @@ public class JobController {
             job.cmax = salary;
             job.type = type;
             jobService.updateJob(job);
-            return "redirect:/dash#";
+            return "redirect:/job/"+jobId;
         } else {
             return "timeout";
         }
@@ -157,16 +170,27 @@ public class JobController {
         ind = ind == null ? empty : ind;
         type = type == null ? empty : type;
         loc = loc == null ? empty : loc;
+        cmin = (cmin != null) ? cmin : 0;
+        cmax = (cmax != null) ? cmax : 6000;
+        
+        model.addAttribute("s", key);
+        model.addAttribute("cmin", cmin);
+        model.addAttribute("cmax", cmax);
+        
+        model.addAttribute("ind", Arrays.asList(ind));
+        model.addAttribute("type", Arrays.asList(type));
+        model.addAttribute("loc", Arrays.asList(loc));
+        
         JobSearch u = new JobSearch();
         u.text = key;
-        u.cmin = (cmin != null) ? cmin : 0;
-        u.cmax = (cmax != null) ? cmax : Integer.MAX_VALUE;
-        u.industry = ind;
-        u.type = type;
-        u.location = loc;
+        u.cmin = cmin;
+        u.cmax = cmax;
+        u.industry = ind.clone();
+        u.type = type.clone();
+        u.location = loc.clone();
         
         List<Job> jobs = jobService.search(u);
-        model.addAttribute("s", key);
+        
         model.addAttribute("res", jobs);
         model.addAttribute("count", jobs.size());
         return "find-jobs";

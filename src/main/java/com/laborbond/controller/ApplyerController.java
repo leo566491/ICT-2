@@ -21,6 +21,7 @@ import java.io.File;
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Calendar;
 import java.util.HashMap;
 import java.util.List;
@@ -132,6 +133,11 @@ public class ApplyerController {
                 String[] keySkillStringList = keySkills.split(", ");
                 for (String keySkill : keySkillStringList) {
                     Skill e = skillMap.get(keySkill);
+                    if (e == null) {
+                        skillService.addNewSkill(keySkill);
+                        skillMap = getSkillMap();
+                        e = skillMap.get(keySkill);
+                    }
                     if (e != null) {
                         skillList.add(e);
                     }
@@ -196,6 +202,7 @@ public class ApplyerController {
         model.addAttribute("skill", emInfo.getSkill());
         model.addAttribute("keyskill", keySkill);
         model.addAttribute("location", emInfo.getLocation());
+        model.addAttribute("industry", emInfo.getIndustry());
         model.addAttribute("phone", emInfo.getTel());
         model.addAttribute("dob", emInfo.getBirth());
         model.addAttribute("experience", emExp);
@@ -234,6 +241,7 @@ public class ApplyerController {
         model.addAttribute("about", emInfo.getInfo());
         model.addAttribute("skill", emInfo.getSkill());
         model.addAttribute("location", emInfo.getLocation());
+        model.addAttribute("industry", emInfo.getIndustry());
         model.addAttribute("phone", emInfo.getTel());
         model.addAttribute("dob", Long.toString(emInfo.birth));
 
@@ -264,10 +272,15 @@ public class ApplyerController {
         loc = loc == null ? empty : loc;
         key = key == null ? "" : key;
         date= date == null ? -1 : date;
+        
+        model.addAttribute("ind", Arrays.asList(ind));
+        model.addAttribute("date", date);
+        model.addAttribute("loc", Arrays.asList(loc));
+        
         EmSearch k = new EmSearch();
         k.text = key;
-        k.industry = ind;
-        k.location = loc;
+        k.industry = ind.clone();
+        k.location = loc.clone();
         k.date = date == -1?Double.MIN_EXPONENT:(System.currentTimeMillis()-86400000l*date);
         List<EmInfo> em = employeeService.search(k);
         model.addAttribute("s", key);
