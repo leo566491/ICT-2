@@ -74,7 +74,7 @@
                                     <div class="col-sm-6">
                                         <div class="form-group" id="resume-contact-number">
                                             <label for="resume-contact-number">Contact Number</label>
-                                            <input type="number" class="form-control" id="resume-contact-number" name="contact_number" value="${phone!}" placeholder="e.g. 87105485">
+                                            <input type="text" class="form-control" id="resume-contact-number" name="contact_number" value="${phone!}" placeholder="e.g. 87105485">
                                         </div>
                                     </div>
                                     <div class="col-sm-6">
@@ -82,11 +82,11 @@
                                             <label for="resume-industry">Job Industry</label>
                                             <select class="form-control" id="resume-industry" name="industry">
                                                 <option value="Other">Choose an industry</option>
-                                                <option value="Internet Services" <#if industry!"" == "Internet Services"> selected</#if>>Internet Services</option>
-                                                <option value="Banking" <#if industry!"" == "Banking"> selected</#if>>Banking</option>
-                                                <option value="Financial" <#if industry!"" == "Financial"> selected</#if>>Financial</option>
-                                                <option value="Marketing" <#if industry!"" == "Marketing"> selected</#if>>Marketing</option>
-                                                <option value="Management" <#if industry!"" == "Management"> selected</#if>>Management</option>
+                                                <option value="Internet Services" <#if industry??><#if "Internet Services" == industry> selected</#if></#if>>Internet Services</option>
+                                                <option value="Banking" <#if industry??><#if "Banking" == industry> selected</#if></#if>>Banking</option>
+                                                <option value="Financial" <#if industry??><#if "Financial" == industry> selected</#if></#if>>Financial</option>
+                                                <option value="Marketing" <#if industry??><#if "Marketing" == industry> selected</#if></#if>>Marketing</option>
+                                                <option value="Management" <#if industry??><#if "Management" == industry> selected</#if></#if>>Management</option>
                                             </select>
                                         </div>
                                     </div>
@@ -101,7 +101,8 @@
                                     <div class="col-sm-6">
                                         <div class="form-group" id="resume-skills">
                                             <label for="resume-skills">Key Skills</label>
-                                            <input type="text" class="form-control" id="tokenfield" name="key_skills"/>
+                                            
+                                            <input type="text" class="form-control" id="tokenfield" value="${keyskillStr!}" name="key_skills"/>
                                         </div>
                                     </div>
                                 </div>
